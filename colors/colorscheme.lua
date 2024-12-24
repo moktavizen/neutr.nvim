@@ -121,7 +121,7 @@ local colors = {
 -- colorschemes generally want to do this
 vim.cmd("highlight clear")
 vim.cmd("set t_Co=256")
-vim.cmd("let g:colors_name='neutr-dark'")
+vim.cmd("let g:colors_name='neutr'")
 
 -- apply highlight groups
 for group, attrs in pairs(colors) do
