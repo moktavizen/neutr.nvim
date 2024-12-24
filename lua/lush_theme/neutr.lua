@@ -351,6 +351,7 @@ local theme = lush(function(injected_functions)
 		--
 		-- bufferline
 		--
+		BufferLineOffset({ fg = colors.neutral["50"], bg = colors.neutral["950"] }),
 		BufferlineOffsetSeparator({ NvimTreeWinSeparator }),
 		--
 		-- fzf-lua

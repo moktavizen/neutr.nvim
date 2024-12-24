@@ -6,6 +6,7 @@ local colors = {
 Normal = {fg = "#EDEDED", bg = "#212121"},
 TabLineSel = {link = "Normal"},
 Boolean = {fg = "#F2979B"},
+BufferLineOffset = {fg = "#EDEDED", bg = "#171717"},
 ColorColumn = {bg = "#4A4A4A"},
 Comment = {fg = "#9C9C9C", italic = true},
 Conceal = {fg = "#878787"},
