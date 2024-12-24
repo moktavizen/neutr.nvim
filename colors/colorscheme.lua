@@ -125,6 +125,15 @@ WinBar = {fg = "#B8B8B8"},
 WinBarNC = {fg = "#5C5C5C"},
 Winseparator = {fg = "#737373"},
 lCursor = {fg = "#212121", bg = "#EDEDED"},
+["lualine_a_inactive"] = {fg = "#878787", bg = "#212121"},
+["lualine_a_insert"] = {fg = "#212121", bg = "#F2979B", bold = true},
+["lualine_a_normal"] = {fg = "#212121", bg = "#97B4F2", bold = true},
+["lualine_a_replace"] = {fg = "#212121", bg = "#CD97F2", bold = true},
+["lualine_a_visual"] = {fg = "#212121", bg = "#CDF297", bold = true},
+["lualine_b_inactive"] = {fg = "#878787", bg = "#212121"},
+["lualine_b_normal"] = {fg = "#EDEDED", bg = "#4A4A4A"},
+["lualine_c_inactive"] = {fg = "#878787", bg = "#212121"},
+["lualine_c_normal"] = {fg = "#878787", bg = "#212121"},
 	-- PATCH_CLOSE
 	-- content here will not be touched
 }
