@@ -339,8 +339,8 @@ local theme = lush(function(injected_functions)
 		SnacksDashboardDesc({ fg = colors.purple["300"] }),
 		SnacksDashboardIcon({ fg = colors.red["300"] }),
 		SnacksDashboardKey({ fg = colors.blue["300"] }),
-		SnacksDashboardFooter({ fg = colors.orange["500"] }),
-		SnacksDashboardSpecial({ fg = colors.orange["500"] }),
+		SnacksDashboardFooter({ fg = colors.orange["300"] }),
+		SnacksDashboardSpecial({ fg = colors.orange["300"] }),
 		--
 		-- nvim-tree
 		--
