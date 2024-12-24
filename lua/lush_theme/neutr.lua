@@ -352,18 +352,6 @@ local theme = lush(function(injected_functions)
 		-- bufferline
 		--
 		BufferlineOffsetSeparator({ NvimTreeWinSeparator }),
-		--
-		-- lualine
-		--
-		lualine_a_normal({ gui = "bold", fg = colors.neutral["900"], bg = colors.blue["300"] }),
-		lualine_a_insert({ gui = "bold", fg = colors.neutral["900"], bg = colors.red["300"] }),
-		lualine_a_visual({ gui = "bold", fg = colors.neutral["900"], bg = colors.green["300"] }),
-		lualine_a_replace({ gui = "bold", fg = colors.neutral["900"], bg = colors.purple["300"] }),
-		lualine_b_normal({ fg = colors.neutral["50"], bg = colors.neutral["600"] }),
-		lualine_c_normal({ fg = colors.neutral["300"], bg = colors.neutral["900"] }),
-		lualine_a_inactive({ fg = colors.neutral["300"], bg = colors.neutral["900"] }),
-		lualine_b_inactive({ fg = colors.neutral["300"], bg = colors.neutral["900"] }),
-		lualine_c_inactive({ fg = colors.neutral["300"], bg = colors.neutral["900"] }),
 	}
 end)
 
