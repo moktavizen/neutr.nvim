@@ -54,7 +54,7 @@ local colors = {
 		["400"] = hsl("#737373"),
 		["500"] = hsl("#5d5d5d"),
 		["600"] = hsl("#4a4a4a"),
-		["700"] = hsl("#404040"),
+		["700"] = hsl("#383838"),
 		["800"] = hsl("#2e2e2e"),
 		["900"] = hsl("#212121"),
 		["950"] = hsl("#171717"),
@@ -140,7 +140,7 @@ local theme = lush(function(injected_functions)
 		CursorLineNr({ fg = colors.neutral["100"] }), -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 		CursorLineFold({ FoldColumn }), -- Like FoldColumn when 'cursorline' is set for the cursor line
 		CursorLineSign({ SignColumn }), -- Like SignColumn when 'cursorline' is set for the cursor line
-		NonText({ fg = colors.neutral["600"] }), -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+		NonText({ fg = colors.neutral["700"] }), -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 		SpecialKey({ NonText }), -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
 		Pmenu({ fg = colors.neutral["100"], bg = colors.neutral["950"] }), -- Popup menu: Normal item.
 		PmenuSel({ fg = colors.blue["300"], bg = colors.blue["950"] }), -- Popup menu: Selected item.
@@ -332,9 +332,26 @@ local theme = lush(function(injected_functions)
 
 		-- Plugins
 		--
-		-- Snacks
+		-- snacks
 		--
 		SnacksIndentScope({ fg = colors.neutral["500"] }),
+		SnacksDashboardHeader({ fg = colors.neutral["50"] }),
+		SnacksDashboardDesc({ fg = colors.purple["300"] }),
+		SnacksDashboardIcon({ fg = colors.red["300"] }),
+		SnacksDashboardKey({ fg = colors.blue["300"] }),
+		SnacksDashboardFooter({ fg = colors.orange["500"] }),
+		SnacksDashboardSpecial({ fg = colors.orange["500"] }),
+		--
+		-- nvim-tree
+		--
+		NvimTreeRootFolder({ gui = "bold", fg = colors.neutral["100"] }),
+		NvimTreeWinSeparator({ fg = colors.neutral["950"], bg = colors.neutral["950"] }),
+		NvimTreeNormal({ NormalFloat }),
+		NvimTreeCursorLine({ fg = colors.blue["300"], bg = colors.blue["950"] }),
+		--
+		-- bufferline
+		--
+		BufferlineOffsetSeparator({ NvimTreeWinSeparator }),
 	}
 end)
 
