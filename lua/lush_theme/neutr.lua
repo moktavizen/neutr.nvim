@@ -108,7 +108,7 @@ local theme = lush(function(injected_functions)
 		Normal({ fg = colors.neutral["50"], bg = colors.neutral["900"] }), -- Normal text
 		NormalNC({ fg = colors.neutral["50"], bg = colors.neutral["900"] }), -- normal text in non-current windows
 		NormalFloat({ fg = colors.neutral["100"], bg = colors.neutral["950"] }), -- Normal text in floating windows.
-		FloatBorder({ fg = colors.neutral["400"] }), -- Border of floating windows.
+		FloatBorder({ fg = colors.neutral["400"], bg = colors.neutral["950"] }), -- Border of floating windows.
 		FloatTitle({ Title }), -- Title of floating windows.
 		ColorColumn({ bg = colors.neutral["600"] }), -- Columns set with 'colorcolumn'
 		Conceal({ fg = colors.neutral["300"] }), -- Placeholder characters substituted for concealed text (see 'conceallevel')
@@ -352,6 +352,23 @@ local theme = lush(function(injected_functions)
 		-- bufferline
 		--
 		BufferlineOffsetSeparator({ NvimTreeWinSeparator }),
+		--
+		-- fzf-lua
+		--
+		FzfLuaNormal({ NormalFloat }),
+		FzfLuaBorder({ FloatBorder }),
+		FzfLuaPreviewNormal({ NormalFloat }),
+		FzfLuaHeaderText({ fg = colors.red["300"] }),
+		FzfLuaBufFlagCur({ fg = colors.red["300"] }),
+		FzfLuaLiveSym({ fg = colors.red["300"] }),
+		FzfLuaHeaderBind({ fg = colors.orange["300"] }),
+		FzfLuaBufNr({ fg = colors.orange["300"] }),
+		FzfLuaTabMarker({ fg = colors.orange["300"] }),
+		FzfLuaPathLineNr({ fg = colors.green["300"] }),
+		FzfLuaBufFlagAlt({ fg = colors.cyan["300"] }),
+		FzfLuaPathColNr({ fg = colors.cyan["300"] }),
+		FzfLuaTabTitle({ fg = colors.blue["300"] }),
+		FzfLuaBufName({ fg = colors.purple["300"] }),
 	}
 end)
 
