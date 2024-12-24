@@ -1,5 +1,8 @@
 -- shipwright_build.lua
 
+-- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
+-- support an annotation like the following. Consult your server documentation.
+---@diagnostic disable: undefined-global
 local lushwright = require("shipwright.transform.lush")
 run(
 	require("lua.lush_theme.neutr"),
