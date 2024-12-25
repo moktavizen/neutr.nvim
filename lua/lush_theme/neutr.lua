@@ -240,28 +240,28 @@ local theme = lush(function(injected_functions)
 		--
 		DiagnosticError({ fg = colors.red["300"] }), -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 		DiagnosticWarn({ fg = colors.orange["300"] }), -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-		DiagnosticInfo({ fg = colors.cyan["300"] }), -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-		DiagnosticHint({ fg = colors.blue["300"] }), -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+		DiagnosticInfo({ fg = colors.blue["300"] }), -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+		DiagnosticHint({ fg = colors.cyan["300"] }), -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 		DiagnosticOk({ fg = colors.green["300"] }), -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 		DiagnosticVirtualTextError({ fg = colors.red["300"], bg = colors.red["950"] }), -- Used for "Error" diagnostic virtual text.
 		DiagnosticVirtualTextWarn({ fg = colors.orange["300"], bg = colors.orange["950"] }), -- Used for "Warn" diagnostic virtual text.
-		DiagnosticVirtualTextInfo({ fg = colors.cyan["300"], bg = colors.cyan["950"] }), -- Used for "Info" diagnostic virtual text.
-		DiagnosticVirtualTextHint({ fg = colors.blue["300"], bg = colors.blue["950"] }), -- Used for "Hint" diagnostic virtual text.
+		DiagnosticVirtualTextInfo({ fg = colors.blue["300"], bg = colors.cyan["950"] }), -- Used for "Info" diagnostic virtual text.
+		DiagnosticVirtualTextHint({ fg = colors.cyan["300"], bg = colors.blue["950"] }), -- Used for "Hint" diagnostic virtual text.
 		DiagnosticVirtualTextOk({ fg = colors.green["300"], bg = colors.green["950"] }), -- Used for "Ok" diagnostic virtual text.
 		DiagnosticUnderlineError({ gui = "underline", fg = colors.red["300"] }), -- Used to underline "Error" diagnostics.
 		DiagnosticUnderlineWarn({ gui = "underline", fg = colors.orange["300"] }), -- Used to underline "Warn" diagnostics.
-		DiagnosticUnderlineInfo({ gui = "underline", fg = colors.cyan["300"] }), -- Used to underline "Info" diagnostics.
-		DiagnosticUnderlineHint({ gui = "underline", fg = colors.blue["300"] }), -- Used to underline "Hint" diagnostics.
+		DiagnosticUnderlineInfo({ gui = "underline", fg = colors.blue["300"] }), -- Used to underline "Info" diagnostics.
+		DiagnosticUnderlineHint({ gui = "underline", fg = colors.cyan["300"] }), -- Used to underline "Hint" diagnostics.
 		DiagnosticUnderlineOk({ gui = "underline", fg = colors.green["300"] }), -- Used to underline "Ok" diagnostics.
 		DiagnosticFloatingError({ fg = colors.red["300"] }), -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
 		DiagnosticFloatingWarn({ fg = colors.orange["300"] }), -- Used to color "Warn" diagnostic messages in diagnostics float.
-		DiagnosticFloatingInfo({ fg = colors.cyan["300"] }), -- Used to color "Info" diagnostic messages in diagnostics float.
-		DiagnosticFloatingHint({ fg = colors.blue["300"] }), -- Used to color "Hint" diagnostic messages in diagnostics float.
+		DiagnosticFloatingInfo({ fg = colors.blue["300"] }), -- Used to color "Info" diagnostic messages in diagnostics float.
+		DiagnosticFloatingHint({ fg = colors.cyan["300"] }), -- Used to color "Hint" diagnostic messages in diagnostics float.
 		DiagnosticFloatingOk({ fg = colors.green["300"] }), -- Used to color "Ok" diagnostic messages in diagnostics float.
 		DiagnosticSignError({ fg = colors.red["300"] }), -- Used for "Error" signs in sign column.
 		DiagnosticSignWarn({ fg = colors.orange["300"] }), -- Used for "Warn" signs in sign column.
-		DiagnosticSignInfo({ fg = colors.cyan["300"] }), -- Used for "Info" signs in sign column.
-		DiagnosticSignHint({ fg = colors.blue["300"] }), -- Used for "Hint" signs in sign column.
+		DiagnosticSignInfo({ fg = colors.blue["300"] }), -- Used for "Info" signs in sign column.
+		DiagnosticSignHint({ fg = colors.cyan["300"] }), -- Used for "Hint" signs in sign column.
 		DiagnosticSignOk({ fg = colors.green["300"] }), -- Used for "Ok" signs in sign column.
 
 		-- Tree-Sitter syntax groups.
