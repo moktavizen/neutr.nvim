@@ -61,7 +61,6 @@ local colors = {
 	},
 	red = {
 		["300"] = hsl("#f2979c"),
-		["600"] = hsl("#9a5b5e"),
 		["950"] = hsl("#352c2d"),
 	},
 	orange = {
@@ -70,7 +69,6 @@ local colors = {
 	},
 	green = {
 		["300"] = hsl("#cdf297"),
-		["600"] = hsl("#819a5b"),
 		["950"] = hsl("#31352c"),
 	},
 	cyan = {
@@ -80,7 +78,6 @@ local colors = {
 	},
 	blue = {
 		["300"] = hsl("#97b4f2"),
-		["600"] = hsl("#5b6f9a"),
 		["950"] = hsl("#2c2f35"),
 	},
 	purple = {
@@ -118,10 +115,6 @@ local theme = lush(function(injected_functions)
 		CursorColumn({ bg = colors.neutral["800"] }), -- Screen-column at the cursor, when 'cursorcolumn' is set.
 		CursorLine({ bg = colors.neutral["800"] }), -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
 		Directory({ fg = colors.neutral["100"] }), -- Directory names (and other special names in listings)
-		DiffAdd({ bg = colors.green["950"] }), -- Diff mode: Added line |diff.txt|
-		DiffChange({ bg = colors.blue["950"] }), -- Diff mode: Changed line |diff.txt|
-		DiffDelete({ bg = colors.red["950"] }), -- Diff mode: Deleted line |diff.txt|
-		DiffText({ bg = colors.cyan["950"] }), -- Diff mode: Changed text within a changed line |diff.txt|
 		EndOfBuffer({ fg = colors.neutral["900"] }), -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
 		TermCursor({ fg = colors.neutral["900"], bg = colors.neutral["100"] }), -- Cursor in a focused terminal
 		TermCursorNC({ fg = colors.neutral["900"], bg = colors.neutral["200"] }), -- Cursor in an unfocused terminal
@@ -132,7 +125,7 @@ local theme = lush(function(injected_functions)
 		IncSearch({ fg = colors.neutral["950"], bg = colors.orange["300"] }), -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 		Search({ fg = colors.neutral["950"], bg = colors.blue["300"] }), -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
 		CurSearch({ fg = colors.neutral["950"], bg = colors.red["300"] }), -- Highlighting a search pattern under the cursor (see 'hlsearch')
-		MatchParen({ gui = "bold", fg = colors.neutral["900"], bg = colors.blue["300"] }), -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+		MatchParen({ fg = colors.neutral["900"], bg = colors.blue["300"] }), -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
 		Substitute({ fg = colors.red["300"], bg = colors.neutral["600"] }), -- |:substitute| replacement text highlighting
 		LineNr({ fg = colors.neutral["500"] }), -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
 		LineNrAbove({ LineNr }), -- Line number for when the 'relativenumber' option is set, above the cursor line
@@ -167,13 +160,17 @@ local theme = lush(function(injected_functions)
 		MsgArea({}), -- Area for messages and cmdline
 		MsgSeparator({}), -- Separator for scrolled messages, `msgsep` flag of 'display'
 		MoreMsg({ fg = colors.blue["300"] }), -- |more-prompt|
-		ErrorMsg({ gui = "bold,italic", fg = colors.red["300"] }), -- Error messages on the command line
-		WarningMsg({ fg = colors.orange["300"] }), -- Warning messages
 		Whitespace({ fg = colors.neutral["600"] }), -- "nbsp", "space", "tab" and "trail" in 'listchars'
 		Winseparator({ fg = colors.neutral["400"] }), -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
 		WildMenu({ bg = colors.neutral["600"] }), -- Current match in 'wildmenu' completion
 		WinBar({ fg = colors.neutral["100"] }), -- Window bar of current window
 		WinBarNC({ fg = colors.neutral["500"] }), -- Window bar of not-current windows
+		ErrorMsg({ gui = "bold,italic", fg = colors.red["300"] }), -- Error messages on the command line
+		WarningMsg({ fg = colors.orange["300"] }), -- Warning messages
+		DiffAdd({ bg = colors.green["950"] }), -- Diff mode: Added line |diff.txt|
+		DiffChange({ bg = colors.blue["950"] }), -- Diff mode: Changed line |diff.txt|
+		DiffDelete({ bg = colors.red["950"] }), -- Diff mode: Deleted line |diff.txt|
+		DiffText({ bg = colors.cyan["950"] }), -- Diff mode: Changed text within a changed line |diff.txt|
 
 		-- Common vim syntax groups used for all kinds of code and markup.
 		-- Commented-out groups should chain up to their preferred (*) group
@@ -251,11 +248,11 @@ local theme = lush(function(injected_functions)
 		DiagnosticVirtualTextInfo({ fg = colors.cyan["300"], bg = colors.cyan["950"] }), -- Used for "Info" diagnostic virtual text.
 		DiagnosticVirtualTextHint({ fg = colors.blue["300"], bg = colors.blue["950"] }), -- Used for "Hint" diagnostic virtual text.
 		DiagnosticVirtualTextOk({ fg = colors.green["300"], bg = colors.green["950"] }), -- Used for "Ok" diagnostic virtual text.
-		DiagnosticUnderlineError({ fg = colors.red["300"] }), -- Used to underline "Error" diagnostics.
-		DiagnosticUnderlineWarn({ fg = colors.orange["300"] }), -- Used to underline "Warn" diagnostics.
-		DiagnosticUnderlineInfo({ fg = colors.cyan["300"] }), -- Used to underline "Info" diagnostics.
-		DiagnosticUnderlineHint({ fg = colors.blue["300"] }), -- Used to underline "Hint" diagnostics.
-		DiagnosticUnderlineOk({ fg = colors.green["300"] }), -- Used to underline "Ok" diagnostics.
+		DiagnosticUnderlineError({ gui = "underline", fg = colors.red["300"] }), -- Used to underline "Error" diagnostics.
+		DiagnosticUnderlineWarn({ gui = "underline", fg = colors.orange["300"] }), -- Used to underline "Warn" diagnostics.
+		DiagnosticUnderlineInfo({ gui = "underline", fg = colors.cyan["300"] }), -- Used to underline "Info" diagnostics.
+		DiagnosticUnderlineHint({ gui = "underline", fg = colors.blue["300"] }), -- Used to underline "Hint" diagnostics.
+		DiagnosticUnderlineOk({ gui = "underline", fg = colors.green["300"] }), -- Used to underline "Ok" diagnostics.
 		DiagnosticFloatingError({ fg = colors.red["300"] }), -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
 		DiagnosticFloatingWarn({ fg = colors.orange["300"] }), -- Used to color "Warn" diagnostic messages in diagnostics float.
 		DiagnosticFloatingInfo({ fg = colors.cyan["300"] }), -- Used to color "Info" diagnostic messages in diagnostics float.
@@ -370,6 +367,12 @@ local theme = lush(function(injected_functions)
 		FzfLuaPathColNr({ fg = colors.cyan["300"] }),
 		FzfLuaTabTitle({ fg = colors.blue["300"] }),
 		FzfLuaBufName({ fg = colors.purple["300"] }),
+		--
+		-- gitsigns
+		--
+		GitSignsAdd({ fg = colors.green["300"] }),
+		GitSignsChange({ fg = colors.blue["300"] }),
+		GitSignsDelete({ fg = colors.red["300"] }),
 	}
 end)
 
