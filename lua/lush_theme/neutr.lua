@@ -326,6 +326,8 @@ local theme = lush(function(injected_functions)
 		-- sym"@preproc"           { }, -- PreProc
 		-- sym"@debug"             { }, -- Debug
 		-- sym"@tag"               { }, -- Tag
+		sym("@tag.attribute")({ fg = colors.purple["300"] }),
+		sym("@tag.delimiter")({ fg = colors.cyan["300"] }),
 
 		-- Plugins
 		--
@@ -370,9 +372,9 @@ local theme = lush(function(injected_functions)
 		--
 		-- gitsigns
 		--
-		GitSignsAdd({ fg = colors.green["300"] }),
-		GitSignsChange({ fg = colors.blue["300"] }),
-		GitSignsDelete({ fg = colors.red["300"] }),
+		Added({ fg = colors.green["300"] }),
+		Changed({ fg = colors.blue["300"] }),
+		Removed({ fg = colors.red["300"] }),
 	}
 end)
 
