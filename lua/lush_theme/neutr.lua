@@ -231,12 +231,12 @@ local theme = lush(function(injected_functions)
 
 		-- See :h lsp-highlight, some groups may not be listed, submit a PR fix to lush-template!
 		--
-		-- LspReferenceText            { } , -- Used for highlighting "text" references
-		-- LspReferenceRead            { } , -- Used for highlighting "read" references
-		-- LspReferenceWrite           { } , -- Used for highlighting "write" references
-		-- LspCodeLens                 { } , -- Used to color the virtual text of the codelens. See |nvim_buf_set_extmark()|.
-		-- LspCodeLensSeparator        { } , -- Used to color the seperator between two or more code lens.
-		-- LspSignatureActiveParameter { } , -- Used to highlight the active parameter in the signature help. See |vim.lsp.handlers.signature_help()|.
+		LspReferenceText({ bg = c.neutral["600"] }), -- Used for highlighting "text" references
+		LspReferenceRead({ bg = c.neutral["600"] }), -- Used for highlighting "read" references
+		LspReferenceWrite({ bg = c.neutral["600"] }), -- Used for highlighting "write" references
+		LspCodeLens({ fg = c.neutral["400"] }), -- Used to color the virtual text of the codelens. See |nvim_buf_set_extmark()|.
+		LspCodeLensSeparator({ LspCodeLens }), -- Used to color the seperator between two or more code lens.
+		LspSignatureActiveParameter({ gui = "bold", bg = c.neutral["700"] }), -- Used to highlight the active parameter in the signature help. See |vim.lsp.handlers.signature_help()|.
 
 		-- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
 		--
