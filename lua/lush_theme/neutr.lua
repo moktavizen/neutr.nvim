@@ -147,10 +147,6 @@ local theme = lush(function(injected_functions)
 		PmenuThumb({ bg = c.neutral["700"] }), -- Popup menu: Thumb of the scrollbar.
 		Question({ fg = c.blue["300"] }), -- |hit-enter| prompt and yes/no questions
 		QuickFixLine({ bg = c.neutral["600"] }), -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-		SpellBad({ gui = "undercurl", fg = c.red["300"] }), -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
-		SpellCap({ gui = "undercurl", fg = c.orange["300"] }), -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
-		SpellLocal({ gui = "undercurl", fg = c.blue["300"] }), -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
-		SpellRare({ gui = "undercurl", fg = c.green["300"] }), -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
 		StatusLine({ fg = c.neutral["100"], bg = c.neutral["950"] }), -- Status line of current window
 		StatusLineNC({ fg = c.neutral["600"], bg = c.neutral["950"] }), -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 		TabLine({ fg = c.neutral["600"], bg = c.neutral["950"] }), -- Tab pages line, not active tab page label
@@ -167,6 +163,10 @@ local theme = lush(function(injected_functions)
 		WildMenu({ bg = c.neutral["600"] }), -- Current match in 'wildmenu' completion
 		WinBar({ fg = c.neutral["100"] }), -- Window bar of current window
 		WinBarNC({ fg = c.neutral["500"] }), -- Window bar of not-current windows
+		SpellBad({ gui = "undercurl", sp = c.red["300"] }), -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
+		SpellCap({ gui = "undercurl", sp = c.orange["300"] }), -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
+		SpellLocal({ gui = "undercurl", sp = c.blue["300"] }), -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
+		SpellRare({ gui = "undercurl", sp = c.green["300"] }), -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
 		ErrorMsg({ gui = "bold,italic", fg = c.red["300"] }), -- Error messages on the command line
 		WarningMsg({ fg = c.orange["300"] }), -- Warning messages
 		DiffAdd({ bg = c.green["950"] }), -- Diff mode: Added line |diff.txt|
@@ -184,46 +184,46 @@ local theme = lush(function(injected_functions)
 
 		Comment({ gui = "italic", fg = c.neutral["200"] }), -- Any comment
 
-		Constant({ fg = c.cyan["300"] }), -- (*) Any constant
+		Constant({ fg = c.neutral["50"] }), -- (*) Any constant
 		String({ fg = c.green["300"] }), --   A string constant: "this is a string"
-		-- Character      { }, --   A character constant: 'c', '\n'
+		Character({ fg = c.cyan["300"] }), --   A character constant: 'c', '\n'
 		Number({ fg = c.red["300"] }), --   A number constant: 234, 0xff
 		Boolean({ fg = c.red["300"] }), --   A boolean constant: TRUE, false
-		-- Float          { }, --   A floating point constant: 2.3e10
+		Float({ fg = c.red["300"] }), --   A floating point constant: 2.3e10
 
-		Identifier({ fg = c.cyan["500"] }), -- (*) Any variable name
+		Identifier({ fg = c.cyan["300"] }), -- (*) Any variable name
 		Function({ fg = c.blue["300"] }), --   Function name (also: methods for classes)
 
 		Statement({ fg = c.cyan["300"] }), -- (*) Any statement
-		-- Conditional    { }, --   if, then, else, endif, switch, etc.
-		-- Repeat         { }, --   for, do, while, etc.
-		-- Label          { }, --   case, default, etc.
-		-- Operator       { }, --   "sizeof", "+", "*", etc.
+		Conditional({ fg = c.cyan["300"] }), --   if, then, else, endif, switch, etc.
+		Repeat({ fg = c.cyan["300"] }), --   for, do, while, etc.
+		Label({ fg = c.cyan["300"] }), --   case, default, etc.
+		Operator({ fg = c.cyan["300"] }), --   "sizeof", "+", "*", etc.
 		Keyword({ fg = c.purple["300"] }), --   any other keyword
-		-- Exception      { }, --   try, catch, throw
+		Exception({ fg = c.cyan["300"] }), --   try, catch, throw
 
 		PreProc({ fg = c.cyan["300"] }), -- (*) Generic Preprocessor
-		-- Include        { }, --   Preprocessor #include
-		-- Define         { }, --   Preprocessor #define
-		-- Macro          { }, --   Same as Define
-		-- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
+		Include({ fg = c.cyan["300"] }), --   Preprocessor #include
+		Define({ fg = c.cyan["300"] }), --   Preprocessor #define
+		Macro({ fg = c.blue["300"] }), --   Same as Define
+		PreCondit({ fg = c.blue["300"] }), --   Preprocessor #if, #else, #endif, etc.
 
 		Type({ fg = c.orange["300"] }), -- (*) int, long, char, etc.
-		-- StorageClass   { }, --   static, register, volatile, etc.
-		-- Structure      { }, --   struct, union, enum, etc.
-		-- Typedef        { }, --   A typedef
+		StorageClass({ fg = c.purple["300"] }), --   static, register, volatile, etc.
+		Structure({ fg = c.purple["300"] }), --   struct, union, enum, etc.
+		Typedef({ fg = c.red["300"] }), --   A typedef
 
 		Special({ fg = c.cyan["300"] }), -- (*) Any special symbol
-		-- SpecialChar    { }, --   Special character in a constant
-		Tag({ fg = c.red["300"] }), --   You can use CTRL-] on this
+		SpecialChar({ fg = c.red["300"] }), --   Special character in a constant
+		Tag({ fg = c.cyan["300"] }), --   You can use CTRL-] on this
 		Delimiter({ fg = c.cyan["300"] }), --   Character that needs attention
-		-- SpecialComment { }, --   Special things inside a comment (e.g. '\n')
-		-- Debug          { }, --   Debugging statements
+		SpecialComment({ fg = c.cyan["300"] }), --   Special things inside a comment (e.g. '\n')
+		Debug({ fg = c.red["300"] }), --   Debugging statements
 
-		-- Underlined     { gui = "underline" }, -- Text that stands out, HTML links
-		-- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
+		Underlined({ gui = "underline" }), -- Text that stands out, HTML links
+		-- Ignore({}), -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
 		Error({ fg = c.red["300"], bg = c.red["950"] }), -- Any erroneous construct
-		-- Todo           { }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+		Todo({ fg = c.cyan["300"] }), -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
 		-- These groups are for the native LSP client and diagnostic system. Some
 		-- other LSP clients may use these groups, or use their own. Consult your
@@ -250,11 +250,11 @@ local theme = lush(function(injected_functions)
 		DiagnosticVirtualTextInfo({ fg = c.blue["300"], bg = c.cyan["950"] }), -- Used for "Info" diagnostic virtual text.
 		DiagnosticVirtualTextHint({ fg = c.cyan["300"], bg = c.blue["950"] }), -- Used for "Hint" diagnostic virtual text.
 		DiagnosticVirtualTextOk({ fg = c.green["300"], bg = c.green["950"] }), -- Used for "Ok" diagnostic virtual text.
-		DiagnosticUnderlineError({ gui = "underline", fg = c.red["300"] }), -- Used to underline "Error" diagnostics.
-		DiagnosticUnderlineWarn({ gui = "underline", fg = c.orange["300"] }), -- Used to underline "Warn" diagnostics.
-		DiagnosticUnderlineInfo({ gui = "underline", fg = c.blue["300"] }), -- Used to underline "Info" diagnostics.
-		DiagnosticUnderlineHint({ gui = "underline", fg = c.cyan["300"] }), -- Used to underline "Hint" diagnostics.
-		DiagnosticUnderlineOk({ gui = "underline", fg = c.green["300"] }), -- Used to underline "Ok" diagnostics.
+		DiagnosticUnderlineError({ gui = "underline", sp = c.red["300"] }), -- Used to underline "Error" diagnostics.
+		DiagnosticUnderlineWarn({ gui = "underline", sp = c.orange["300"] }), -- Used to underline "Warn" diagnostics.
+		DiagnosticUnderlineInfo({ gui = "underline", sp = c.blue["300"] }), -- Used to underline "Info" diagnostics.
+		DiagnosticUnderlineHint({ gui = "underline", sp = c.cyan["300"] }), -- Used to underline "Hint" diagnostics.
+		DiagnosticUnderlineOk({ gui = "underline", sp = c.green["300"] }), -- Used to underline "Ok" diagnostics.
 		DiagnosticFloatingError({ fg = c.red["300"] }), -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
 		DiagnosticFloatingWarn({ fg = c.orange["300"] }), -- Used to color "Warn" diagnostic messages in diagnostics float.
 		DiagnosticFloatingInfo({ fg = c.blue["300"] }), -- Used to color "Info" diagnostic messages in diagnostics float.
@@ -328,8 +328,6 @@ local theme = lush(function(injected_functions)
 		-- sym"@preproc"           { }, -- PreProc
 		-- sym"@debug"             { }, -- Debug
 		-- sym"@tag"               { }, -- Tag
-		sym("@tag.attribute")({ fg = c.purple["300"] }),
-		sym("@tag.delimiter")({ fg = c.cyan["300"] }),
 
 		-- Plugins
 		--
