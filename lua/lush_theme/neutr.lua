@@ -103,7 +103,7 @@ local theme = lush(function(injected_functions)
 		--
 		-- See :h highlight-groups
 		--
-		Title({ gui = "bold", fg = c.neutral["50"] }), -- Titles for output from ":set all", ":autocmd" etc.
+		Title({ fg = c.neutral["50"] }), -- Titles for output from ":set all", ":autocmd" etc.
 		Normal({ fg = c.neutral["50"], bg = c.neutral["900"] }), -- Normal text
 		NormalNC({ fg = c.neutral["50"], bg = c.neutral["900"] }), -- normal text in non-current windows
 		NormalFloat({ fg = c.neutral["100"], bg = c.neutral["950"] }), -- Normal text in floating windows.
@@ -181,6 +181,7 @@ local theme = lush(function(injected_functions)
 		-- See :h group-name
 		--
 		-- Uncomment and edit if you want more specific syntax highlighting.
+		-- This theme prioritize html > ts > js > css > rust > python > c/c++
 
 		Comment({ gui = "italic", fg = c.neutral["200"] }), -- Any comment
 
@@ -192,38 +193,39 @@ local theme = lush(function(injected_functions)
 		Float({ fg = c.red["300"] }), --   A floating point constant: 2.3e10
 
 		Identifier({ fg = c.cyan["300"] }), -- (*) Any variable name
-		Function({ fg = c.blue["300"] }), --   Function name (also: methods for classes)
+		Function({ fg = c.cyan["300"] }), --   Function name (also: methods for classes)
 
-		Statement({ fg = c.cyan["300"] }), -- (*) Any statement
+		Statement({ fg = c.red["300"] }), -- (*) Any statement
 		Conditional({ fg = c.cyan["300"] }), --   if, then, else, endif, switch, etc.
 		Repeat({ fg = c.cyan["300"] }), --   for, do, while, etc.
 		Label({ fg = c.cyan["300"] }), --   case, default, etc.
 		Operator({ fg = c.cyan["300"] }), --   "sizeof", "+", "*", etc.
 		Keyword({ fg = c.purple["300"] }), --   any other keyword
-		Exception({ fg = c.cyan["300"] }), --   try, catch, throw
+		Exception({ fg = c.red["300"] }), --   try, catch, throw
 
-		PreProc({ fg = c.cyan["300"] }), -- (*) Generic Preprocessor
+		PreProc({ fg = c.purple["300"] }), -- (*) Generic Preprocessor
 		Include({ fg = c.cyan["300"] }), --   Preprocessor #include
 		Define({ fg = c.cyan["300"] }), --   Preprocessor #define
 		Macro({ fg = c.blue["300"] }), --   Same as Define
 		PreCondit({ fg = c.blue["300"] }), --   Preprocessor #if, #else, #endif, etc.
 
-		Type({ fg = c.orange["300"] }), -- (*) int, long, char, etc.
-		StorageClass({ fg = c.purple["300"] }), --   static, register, volatile, etc.
-		Structure({ fg = c.purple["300"] }), --   struct, union, enum, etc.
+		Type({ fg = c.purple["300"] }), -- (*) int, long, char, etc.
+		StorageClass({ fg = c.cyan["500"] }), --   static, register, volatile, etc.
+		Structure({ fg = c.cyan["300"] }), --   struct, union, enum, etc.
 		Typedef({ fg = c.red["300"] }), --   A typedef
 
 		Special({ fg = c.cyan["300"] }), -- (*) Any special symbol
 		SpecialChar({ fg = c.red["300"] }), --   Special character in a constant
-		Tag({ fg = c.cyan["300"] }), --   You can use CTRL-] on this
-		Delimiter({ fg = c.cyan["300"] }), --   Character that needs attention
-		SpecialComment({ fg = c.cyan["300"] }), --   Special things inside a comment (e.g. '\n')
-		Debug({ fg = c.red["300"] }), --   Debugging statements
+		Tag({}), --   You can use CTRL-] on this
+		Delimiter({}), --   Character that needs attention
+		SpecialComment({ gui = "italic", fg = c.neutral["200"] }), --   Special things inside a comment (e.g. '\n')
+		Debug({ fg = c.orange["300"] }), --   Debugging statements
 
 		Underlined({ gui = "underline" }), -- Text that stands out, HTML links
 		-- Ignore({}), -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
 		Error({ fg = c.red["300"], bg = c.red["950"] }), -- Any erroneous construct
 		Todo({ fg = c.cyan["300"] }), -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+		Noise({ fg = c.cyan["300"] }), -- css : and ; without treesitter
 
 		-- These groups are for the native LSP client and diagnostic system. Some
 		-- other LSP clients may use these groups, or use their own. Consult your
