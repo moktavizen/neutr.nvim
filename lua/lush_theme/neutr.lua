@@ -278,58 +278,127 @@ local theme = lush(function(injected_functions)
 		-- sym function. The following are all valid ways to call the sym function,
 		-- for more details see https://www.lua.org/pil/5.html
 		--
-		-- sym("@text.literal")
-		-- sym('@text.literal')
-		-- sym"@text.literal"
-		-- sym'@text.literal'
+		-- sym("@variable.member")
+		-- sym('@variable.member')
+		-- sym"@variable.member"
+		-- sym'@variable.member'
 		--
 		-- For more information see https://github.com/rktjmp/lush.nvim/issues/109
 
-		-- sym"@text.literal"      { }, -- Comment
-		-- sym"@text.reference"    { }, -- Identifier
-		-- sym"@text.title"        { }, -- Title
-		-- sym"@text.uri"          { }, -- Underlined
-		-- sym"@text.underline"    { }, -- Underlined
-		-- sym"@text.todo"         { }, -- Todo
-		-- sym"@comment"           { }, -- Comment
-		-- sym"@punctuation"       { }, -- Delimiter
-		-- sym"@constant"          { }, -- Constant
-		-- sym"@constant.builtin"  { }, -- Special
-		-- sym"@constant.macro"    { }, -- Define
-		-- sym"@define"            { }, -- Define
-		-- sym"@macro"             { }, -- Macro
-		-- sym"@string"            { }, -- String
-		-- sym"@string.escape"     { }, -- SpecialChar
-		-- sym"@string.special"    { }, -- SpecialChar
-		-- sym"@character"         { }, -- Character
-		-- sym"@character.special" { }, -- SpecialChar
-		-- sym"@number"            { }, -- Number
-		-- sym"@boolean"           { }, -- Boolean
-		-- sym"@float"             { }, -- Float
-		-- sym"@function"          { }, -- Function
-		-- sym"@function.builtin"  { }, -- Special
-		-- sym"@function.macro"    { }, -- Macro
-		-- sym"@parameter"         { }, -- Identifier
-		-- sym"@method"            { }, -- Function
-		-- sym"@field"             { }, -- Identifier
-		-- sym"@property"          { }, -- Identifier
-		-- sym"@constructor"       { }, -- Special
-		-- sym"@conditional"       { }, -- Conditional
-		-- sym"@repeat"            { }, -- Repeat
-		-- sym"@label"             { }, -- Label
-		-- sym"@operator"          { }, -- Operator
-		-- sym"@keyword"           { }, -- Keyword
-		-- sym"@exception"         { }, -- Exception
-		-- sym"@variable"          { }, -- Identifier
-		-- sym"@type"              { }, -- Type
-		-- sym"@type.definition"   { }, -- Typedef
-		-- sym"@storageclass"      { }, -- StorageClass
-		-- sym"@structure"         { }, -- Structure
-		-- sym"@namespace"         { }, -- Identifier
-		-- sym"@include"           { }, -- Include
-		-- sym"@preproc"           { }, -- PreProc
-		-- sym"@debug"             { }, -- Debug
-		-- sym"@tag"               { }, -- Tag
+		-- sym("@variable")({}), -- various variable names
+		-- sym("@variable.builtin")({}), -- built-in variable names (e.g. `this`, `self`)
+		-- sym("@variable.parameter")({}), -- parameters of a function
+		-- sym("@variable.parameter.builtin")({}), -- special parameters (e.g. `_`, `it`)
+		-- sym("@variable.member")({}), -- object and struct fields
+		--
+		-- sym("@constant")({}), -- constant identifiers
+		-- sym("@constant.builtin")({}), -- built-in constant values
+		-- sym("@constant.macro")({}), -- constants defined by the preprocessor
+		--
+		-- sym("@module")({}), -- modules or namespaces
+		-- sym("@module.builtin")({}), -- built-in modules or namespaces
+		-- sym("@label")({}), -- `GOTO` and other labels (e.g. `label:` in C), including heredoc labels
+		--
+		-- sym("@string")({}), -- string literals
+		-- sym("@string.documentation")({}), -- string documenting code (e.g. Python docstrings)
+		-- sym("@string.regexp")({}), -- regular expressions
+		-- sym("@string.escape")({}), -- escape sequences
+		-- sym("@string.special")({}), -- other special strings (e.g. dates)
+		-- sym("@string.special.symbol")({}), -- symbols or atoms
+		-- sym("@string.special.path")({}), -- filenames
+		-- sym("@string.special.url")({}), -- URIs (e.g. hyperlinks)
+		--
+		-- sym("@character")({}), -- character literals
+		-- sym("@character.special")({}), -- special characters (e.g. wildcards)
+		--
+		-- sym("@boolean")({}), -- boolean literals
+		-- sym("@number")({}), -- numeric literals
+		-- sym("@number.float")({}), -- floating-point number literals
+		--
+		-- sym("@type")({}), -- type or class definitions and annotations
+		-- sym("@type.builtin")({}), -- built-in types
+		-- sym("@type.definition")({}), -- identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
+		--
+		-- sym("@attribute")({}), -- attribute annotations (e.g. Python decorators, Rust lifetimes)
+		-- sym("@attribute.builtin")({}), -- builtin annotations (e.g. `@property` in Python)
+		-- sym("@property")({}), -- the key in key/value pairs
+		--
+		-- sym("@function")({}), -- function definitions
+		-- sym("@function.builtin")({}), -- built-in functions
+		-- sym("@function.call")({}), -- function calls
+		-- sym("@function.macro")({}), -- preprocessor macros
+		--
+		-- sym("@function.method")({}), -- method definitions
+		-- sym("@function.method.call")({}), -- method calls
+		--
+		-- sym("@constructor")({}), -- constructor calls and definitions
+		-- sym("@operator")({}), -- symbolic operators (e.g. `+`, `*`)
+		--
+		-- sym("@keyword")({}), -- keywords not fitting into specific categories
+		-- sym("@keyword.coroutine")({}), -- keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
+		-- sym("@keyword.function")({}), -- keywords that define a function (e.g. `func` in Go, `def` in Python)
+		-- sym("@keyword.operator")({}), -- operators that are English words (e.g. `and`, `or`)
+		-- sym("@keyword.import")({}), -- keywords for including modules (e.g. `import`, `from` in Python)
+		-- sym("@keyword.type")({}), -- keywords defining composite types (e.g. `struct`, `enum`)
+		-- sym("@keyword.modifier")({}), -- keywords defining type modifiers (e.g. `const`, `static`, `public`)
+		-- sym("@keyword.repeat")({}), -- keywords related to loops (e.g. `for`, `while`)
+		-- sym("@keyword.return")({}), -- keywords like `return` and `yield`
+		-- sym("@keyword.debug")({}), -- keywords related to debugging
+		-- sym("@keyword.exception")({}), -- keywords related to exceptions (e.g. `throw`, `catch`)
+		--
+		-- sym("@keyword.conditional")({}), -- keywords related to conditionals (e.g. `if`, `else`)
+		-- sym("@keyword.conditional.ternary")({}), -- ternary operator (e.g. `?`, `:`)
+		--
+		-- sym("@keyword.directive")({}), -- various preprocessor directives and shebangs
+		-- sym("@keyword.directive.define")({}), -- preprocessor definition directives
+		--
+		-- sym("@punctuation.delimiter")({}), -- delimiters (e.g. `;`, `.`, `,`)
+		-- sym("@punctuation.bracket")({}), -- brackets (e.g. `()`, `{}`, `[]`)
+		-- sym("@punctuation.special")({}), -- special symbols (e.g. `{}` in string interpolation)
+		--
+		-- sym("@comment")({}), -- line and block comments
+		-- sym("@comment.documentation")({}), -- comments documenting code
+		--
+		-- sym("@comment.error")({}), -- error-type comments (e.g. `ERROR`, `FIXME`, `DEPRECATED`)
+		-- sym("@comment.warning")({}), -- warning-type comments (e.g. `WARNING`, `FIX`, `HACK`)
+		-- sym("@comment.todo")({}), -- todo-type comments (e.g. `TODO`, `WIP`)
+		-- sym("@comment.note")({}), -- note-type comments (e.g. `NOTE`, `INFO`, `XXX`)
+		--
+		-- sym("@markup.strong")({}), -- bold text
+		-- sym("@markup.italic")({}), -- italic text
+		-- sym("@markup.strikethrough")({}), -- struck-through text
+		-- sym("@markup.underline")({}), -- underlined text (only for literal underline markup!)
+		--
+		-- sym("@markup.heading")({}), -- headings, titles (including markers)
+		-- sym("@markup.heading.1")({}), -- top-level heading
+		-- sym("@markup.heading.2")({}), -- section heading
+		-- sym("@markup.heading.3")({}), -- subsection heading
+		-- sym("@markup.heading.4")({}), -- and so on
+		-- sym("@markup.heading.5")({}), -- and so forth
+		-- sym("@markup.heading.6")({}), -- six levels ought to be enough for anybody
+		--
+		-- sym("@markup.quote")({}), -- block quotes
+		-- sym("@markup.math")({}), -- math environments (e.g. `$ ... $` in LaTeX)
+		--
+		-- sym("@markup.link")({}), -- text references, footnotes, citations, etc.
+		-- sym("@markup.link.label")({}), -- link, reference descriptions
+		-- sym("@markup.link.url")({}), -- URL-style links
+		--
+		-- sym("@markup.raw")({}), -- literal or verbatim text (e.g. inline code)
+		-- sym("@markup.raw.block")({}), -- literal or verbatim text as a stand-alone block
+		--
+		-- sym("@markup.list")({}), -- list markers
+		-- sym("@markup.list.checked")({}), -- checked todo-style list markers
+		-- sym("@markup.list.unchecked")({}), -- unchecked todo-style list markers
+		--
+		-- sym("@diff.plus")({}), -- added text (for diff files)
+		-- sym("@diff.minus")({}), -- deleted text (for diff files)
+		-- sym("@diff.delta")({}), -- changed text (for diff files)
+		--
+		-- sym("@tag")({}), -- XML-style tag names (e.g. in XML, HTML, etc.)
+		-- sym("@tag.builtin")({}), -- XML-style tag names (e.g. HTML5 tags)
+		-- sym("@tag.attribute")({}), -- XML-style tag attributes
+		-- sym("@tag.delimiter")({}), -- XML-style tag delimiters
 
 		-- Plugins
 		--
