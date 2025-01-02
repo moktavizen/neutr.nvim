@@ -216,8 +216,8 @@ local theme = lush(function(injected_functions)
 
 		Special({ fg = c.cyan["300"] }), -- (*) Any special symbol
 		SpecialChar({ fg = c.red["300"] }), --   Special character in a constant
-		Tag({}), --   You can use CTRL-] on this
-		Delimiter({}), --   Character that needs attention
+		Tag({ fg = c.red["300"] }), --   You can use CTRL-] on this
+		Delimiter({ fg = c.cyan["300"] }), --   Character that needs attention
 		SpecialComment({ gui = "italic", fg = c.neutral["200"] }), --   Special things inside a comment (e.g. '\n')
 		Debug({ fg = c.orange["300"] }), --   Debugging statements
 
@@ -285,120 +285,120 @@ local theme = lush(function(injected_functions)
 		--
 		-- For more information see https://github.com/rktjmp/lush.nvim/issues/109
 
-		-- sym("@variable")({}), -- various variable names
-		-- sym("@variable.builtin")({}), -- built-in variable names (e.g. `this`, `self`)
-		-- sym("@variable.parameter")({}), -- parameters of a function
+		sym("@variable")({ fg = c.neutral["50"] }), -- various variable names
+		sym("@variable.builtin")({ fg = c.cyan["300"] }), -- built-in variable names (e.g. `this`, `self`)
+		sym("@variable.parameter")({ gui = "italic", fg = c.neutral["50"] }), -- parameters of a function
 		-- sym("@variable.parameter.builtin")({}), -- special parameters (e.g. `_`, `it`)
-		-- sym("@variable.member")({}), -- object and struct fields
-		--
-		-- sym("@constant")({}), -- constant identifiers
-		-- sym("@constant.builtin")({}), -- built-in constant values
-		-- sym("@constant.macro")({}), -- constants defined by the preprocessor
-		--
-		-- sym("@module")({}), -- modules or namespaces
+		sym("@variable.member")({ fg = c.neutral["50"] }), -- object and struct fields
+
+		sym("@constant")({ fg = c.neutral["50"] }), -- constant identifiers
+		sym("@constant.builtin")({ fg = c.cyan["300"] }), -- built-in constant values
+		sym("@constant.macro")({ fg = c.blue["300"] }), -- constants defined by the preprocessor
+
+		sym("@module")({ fg = c.orange["300"] }), -- modules or namespaces
 		-- sym("@module.builtin")({}), -- built-in modules or namespaces
-		-- sym("@label")({}), -- `GOTO` and other labels (e.g. `label:` in C), including heredoc labels
-		--
-		-- sym("@string")({}), -- string literals
-		-- sym("@string.documentation")({}), -- string documenting code (e.g. Python docstrings)
-		-- sym("@string.regexp")({}), -- regular expressions
-		-- sym("@string.escape")({}), -- escape sequences
+		sym("@label")({ fg = c.orange["300"] }), -- `GOTO` and other labels (e.g. `label:` in C), including heredoc labels
+
+		sym("@string")({ fg = c.green["300"] }), -- string literals
+		sym("@string.documentation")({ Comment }), -- string documenting code (e.g. Python docstrings)
+		sym("@string.regexp")({ fg = c.green["300"] }), -- regular expressions
+		sym("@string.escape")({ fg = c.neutral["50"] }), -- escape sequences
 		-- sym("@string.special")({}), -- other special strings (e.g. dates)
-		-- sym("@string.special.symbol")({}), -- symbols or atoms
+		sym("@string.special.symbol")({ fg = c.cyan["300"] }), -- symbols or atoms
 		-- sym("@string.special.path")({}), -- filenames
-		-- sym("@string.special.url")({}), -- URIs (e.g. hyperlinks)
-		--
-		-- sym("@character")({}), -- character literals
-		-- sym("@character.special")({}), -- special characters (e.g. wildcards)
-		--
-		-- sym("@boolean")({}), -- boolean literals
-		-- sym("@number")({}), -- numeric literals
-		-- sym("@number.float")({}), -- floating-point number literals
-		--
-		-- sym("@type")({}), -- type or class definitions and annotations
-		-- sym("@type.builtin")({}), -- built-in types
-		-- sym("@type.definition")({}), -- identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
-		--
-		-- sym("@attribute")({}), -- attribute annotations (e.g. Python decorators, Rust lifetimes)
-		-- sym("@attribute.builtin")({}), -- builtin annotations (e.g. `@property` in Python)
-		-- sym("@property")({}), -- the key in key/value pairs
-		--
-		-- sym("@function")({}), -- function definitions
-		-- sym("@function.builtin")({}), -- built-in functions
-		-- sym("@function.call")({}), -- function calls
-		-- sym("@function.macro")({}), -- preprocessor macros
-		--
-		-- sym("@function.method")({}), -- method definitions
-		-- sym("@function.method.call")({}), -- method calls
-		--
-		-- sym("@constructor")({}), -- constructor calls and definitions
-		-- sym("@operator")({}), -- symbolic operators (e.g. `+`, `*`)
-		--
-		-- sym("@keyword")({}), -- keywords not fitting into specific categories
-		-- sym("@keyword.coroutine")({}), -- keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
-		-- sym("@keyword.function")({}), -- keywords that define a function (e.g. `func` in Go, `def` in Python)
-		-- sym("@keyword.operator")({}), -- operators that are English words (e.g. `and`, `or`)
-		-- sym("@keyword.import")({}), -- keywords for including modules (e.g. `import`, `from` in Python)
-		-- sym("@keyword.type")({}), -- keywords defining composite types (e.g. `struct`, `enum`)
-		-- sym("@keyword.modifier")({}), -- keywords defining type modifiers (e.g. `const`, `static`, `public`)
-		-- sym("@keyword.repeat")({}), -- keywords related to loops (e.g. `for`, `while`)
-		-- sym("@keyword.return")({}), -- keywords like `return` and `yield`
-		-- sym("@keyword.debug")({}), -- keywords related to debugging
-		-- sym("@keyword.exception")({}), -- keywords related to exceptions (e.g. `throw`, `catch`)
-		--
-		-- sym("@keyword.conditional")({}), -- keywords related to conditionals (e.g. `if`, `else`)
-		-- sym("@keyword.conditional.ternary")({}), -- ternary operator (e.g. `?`, `:`)
-		--
-		-- sym("@keyword.directive")({}), -- various preprocessor directives and shebangs
-		-- sym("@keyword.directive.define")({}), -- preprocessor definition directives
-		--
-		-- sym("@punctuation.delimiter")({}), -- delimiters (e.g. `;`, `.`, `,`)
-		-- sym("@punctuation.bracket")({}), -- brackets (e.g. `()`, `{}`, `[]`)
-		-- sym("@punctuation.special")({}), -- special symbols (e.g. `{}` in string interpolation)
-		--
-		-- sym("@comment")({}), -- line and block comments
-		-- sym("@comment.documentation")({}), -- comments documenting code
-		--
-		-- sym("@comment.error")({}), -- error-type comments (e.g. `ERROR`, `FIXME`, `DEPRECATED`)
-		-- sym("@comment.warning")({}), -- warning-type comments (e.g. `WARNING`, `FIX`, `HACK`)
-		-- sym("@comment.todo")({}), -- todo-type comments (e.g. `TODO`, `WIP`)
-		-- sym("@comment.note")({}), -- note-type comments (e.g. `NOTE`, `INFO`, `XXX`)
-		--
-		-- sym("@markup.strong")({}), -- bold text
-		-- sym("@markup.italic")({}), -- italic text
-		-- sym("@markup.strikethrough")({}), -- struck-through text
-		-- sym("@markup.underline")({}), -- underlined text (only for literal underline markup!)
-		--
-		-- sym("@markup.heading")({}), -- headings, titles (including markers)
-		-- sym("@markup.heading.1")({}), -- top-level heading
-		-- sym("@markup.heading.2")({}), -- section heading
-		-- sym("@markup.heading.3")({}), -- subsection heading
-		-- sym("@markup.heading.4")({}), -- and so on
-		-- sym("@markup.heading.5")({}), -- and so forth
-		-- sym("@markup.heading.6")({}), -- six levels ought to be enough for anybody
-		--
-		-- sym("@markup.quote")({}), -- block quotes
-		-- sym("@markup.math")({}), -- math environments (e.g. `$ ... $` in LaTeX)
-		--
-		-- sym("@markup.link")({}), -- text references, footnotes, citations, etc.
-		-- sym("@markup.link.label")({}), -- link, reference descriptions
-		-- sym("@markup.link.url")({}), -- URL-style links
-		--
-		-- sym("@markup.raw")({}), -- literal or verbatim text (e.g. inline code)
-		-- sym("@markup.raw.block")({}), -- literal or verbatim text as a stand-alone block
-		--
-		-- sym("@markup.list")({}), -- list markers
-		-- sym("@markup.list.checked")({}), -- checked todo-style list markers
-		-- sym("@markup.list.unchecked")({}), -- unchecked todo-style list markers
-		--
-		-- sym("@diff.plus")({}), -- added text (for diff files)
-		-- sym("@diff.minus")({}), -- deleted text (for diff files)
-		-- sym("@diff.delta")({}), -- changed text (for diff files)
-		--
-		-- sym("@tag")({}), -- XML-style tag names (e.g. in XML, HTML, etc.)
+		sym("@string.special.url")({ gui = "underline" }), -- URIs (e.g. hyperlinks)
+
+		sym("@character")({ fg = c.neutral["50"] }), -- character literals
+		sym("@character.special")({ fg = c.red["300"] }), -- special characters (e.g. wildcards)
+
+		sym("@boolean")({ fg = c.red["300"] }), -- boolean literals
+		sym("@number")({ fg = c.red["300"] }), -- numeric literals
+		sym("@number.float")({ fg = c.red["300"] }), -- floating-point number literals
+
+		sym("@type")({ fg = c.orange["300"] }), -- type or class definitions and annotations
+		sym("@type.builtin")({ fg = c.orange["300"] }), -- built-in types
+		sym("@type.definition")({ fg = c.orange["300"] }), -- identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
+
+		sym("@attribute")({ fg = c.purple["300"] }), -- attribute annotations (e.g. Python decorators, Rust lifetimes)
+		sym("@attribute.builtin")({ fg = c.orange["300"] }), -- builtin annotations (e.g. `@property` in Python)
+		sym("@property")({ fg = c.cyan["500"] }), -- the key in key/value pairs
+
+		sym("@function")({ fg = c.blue["300"] }), -- function definitions
+		sym("@function.builtin")({ fg = c.blue["300"] }), -- built-in functions
+		sym("@function.call")({ fg = c.blue["300"] }), -- function calls
+		sym("@function.macro")({ fg = c.blue["300"] }), -- preprocessor macros
+
+		sym("@function.method")({ fg = c.blue["300"] }), -- method definitions
+		sym("@function.method.call")({ fg = c.blue["300"] }), -- method calls
+
+		sym("@constructor")({ fg = c.purple["300"] }), -- constructor calls and definitions
+		sym("@operator")({ fg = c.cyan["300"] }), -- symbolic operators (e.g. `+`, `*`)
+
+		sym("@keyword")({ fg = c.purple["300"] }), -- keywords not fitting into specific categories
+		sym("@keyword.coroutine")({ fg = c.purple["300"] }), -- keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
+		sym("@keyword.function")({ fg = c.red["300"] }), -- keywords that define a function (e.g. `func` in Go, `def` in Python)
+		sym("@keyword.operator")({ fg = c.cyan["300"] }), -- operators that are English words (e.g. `and`, `or`)
+		sym("@keyword.import")({ fg = c.cyan["300"] }), -- keywords for including modules (e.g. `import`, `from` in Python)
+		sym("@keyword.type")({ fg = c.purple["300"] }), -- keywords defining composite types (e.g. `struct`, `enum`)
+		sym("@keyword.modifier")({ fg = c.purple["300"] }), -- keywords defining type modifiers (e.g. `const`, `static`, `public`)
+		sym("@keyword.repeat")({ gui = "italic", fg = c.cyan["300"] }), -- keywords related to loops (e.g. `for`, `while`)
+		sym("@keyword.return")({ gui = "italic", fg = c.cyan["300"] }), -- keywords like `return` and `yield`
+		sym("@keyword.debug")({ gui = "italic", fg = c.orange["300"] }), -- keywords related to debugging
+		sym("@keyword.exception")({ gui = "italic", fg = c.cyan["300"] }), -- keywords related to exceptions (e.g. `throw`, `catch`)
+
+		sym("@keyword.conditional")({ gui = "italic", fg = c.cyan["300"] }), -- keywords related to conditionals (e.g. `if`, `else`)
+		sym("@keyword.conditional.ternary")({ fg = c.cyan["300"] }), -- ternary operator (e.g. `?`, `:`)
+
+		sym("@keyword.directive")({ fg = c.cyan["300"] }), -- various preprocessor directives and shebangs
+		sym("@keyword.directive.define")({ fg = c.cyan["300"] }), -- preprocessor definition directives
+
+		sym("@punctuation.delimiter")({ fg = c.cyan["300"] }), -- delimiters (e.g. `;`, `.`, `,`)
+		sym("@punctuation.bracket")({ fg = c.cyan["300"] }), -- brackets (e.g. `()`, `{}`, `[]`)
+		sym("@punctuation.special")({ fg = c.cyan["300"] }), -- special symbols (e.g. `{}` in string interpolation)
+
+		sym("@comment")({ Comment }), -- line and block comments
+		sym("@comment.documentation")({ Comment }), -- comments documenting code
+
+		sym("@comment.error")({ fg = c.red["300"] }), -- error-type comments (e.g. `ERROR`, `FIXME`, `DEPRECATED`)
+		sym("@comment.warning")({ fg = c.orange["300"] }), -- warning-type comments (e.g. `WARNING`, `FIX`, `HACK`)
+		sym("@comment.todo")({ fg = c.blue["300"] }), -- todo-type comments (e.g. `TODO`, `WIP`)
+		sym("@comment.note")({ fg = c.cyan["300"] }), -- note-type comments (e.g. `NOTE`, `INFO`, `XXX`)
+
+		sym("@markup.strong")({ gui = "bold", fg = c.red["300"] }), -- bold text
+		sym("@markup.italic")({ gui = "italic", fg = c.red["300"] }), -- italic text
+		sym("@markup.strikethrough")({ gui = "strikethrough", fg = c.neutral["50"] }), -- struck-through text
+		sym("@markup.underline")({ Underlined }), -- underlined text (only for literal underline markup!)
+
+		sym("@markup.heading")({ fg = c.neutral["50"] }), -- headings, titles (including markers)
+		sym("@markup.heading.1")({ fg = c.orange["300"] }), -- top-level heading
+		sym("@markup.heading.2")({ fg = c.orange["300"] }), -- section heading
+		sym("@markup.heading.3")({ fg = c.orange["300"] }), -- subsection heading
+		sym("@markup.heading.4")({ fg = c.orange["300"] }), -- and so on
+		sym("@markup.heading.5")({ fg = c.orange["300"] }), -- and so forth
+		sym("@markup.heading.6")({ fg = c.orange["300"] }), -- six levels ought to be enough for anybody
+
+		sym("@markup.quote")({ gui = "italic", fg = c.cyan["300"] }), -- block quotes
+		sym("@markup.math")({ fg = c.blue["300"] }), -- math environments (e.g. `$ ... $` in LaTeX)
+
+		sym("@markup.link")({ fg = c.cyan["300"] }), -- text references, footnotes, citations, etc.
+		sym("@markup.link.label")({ fg = c.green["300"] }), -- link, reference descriptions
+		sym("@markup.link.url")({ fg = c.red["300"] }), -- URL-style links
+
+		sym("@markup.raw")({ fg = c.green["300"] }), -- literal or verbatim text (e.g. inline code)
+		sym("@markup.raw.block")({ fg = c.neutral["100"] }), -- literal or verbatim text as a stand-alone block
+
+		sym("@markup.list")({ fg = c.cyan["300"] }), -- list markers
+		sym("@markup.list.checked")({ fg = c.green["300"] }), -- checked todo-style list markers
+		sym("@markup.list.unchecked")({ fg = c.blue["300"] }), -- unchecked todo-style list markers
+
+		sym("@diff.plus")({ fg = c.green["300"] }), -- added text (for diff files)
+		sym("@diff.minus")({ fg = c.red["300"] }), -- deleted text (for diff files)
+		sym("@diff.delta")({ fg = c.blue["300"] }), -- changed text (for diff files)
+
+		sym("@tag")({ fg = c.red["300"] }), -- XML-style tag names (e.g. in XML, HTML, etc.)
 		-- sym("@tag.builtin")({}), -- XML-style tag names (e.g. HTML5 tags)
-		-- sym("@tag.attribute")({}), -- XML-style tag attributes
-		-- sym("@tag.delimiter")({}), -- XML-style tag delimiters
+		sym("@tag.attribute")({ fg = c.purple["300"] }), -- XML-style tag attributes
+		sym("@tag.delimiter")({ fg = c.cyan["300"] }), -- XML-style tag delimiters
 
 		-- Plugins
 		--
