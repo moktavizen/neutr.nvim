@@ -249,8 +249,8 @@ local theme = lush(function(injected_functions)
 		DiagnosticOk({ fg = c.green["300"] }), -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 		DiagnosticVirtualTextError({ fg = c.red["300"], bg = c.red["950"] }), -- Used for "Error" diagnostic virtual text.
 		DiagnosticVirtualTextWarn({ fg = c.orange["300"], bg = c.orange["950"] }), -- Used for "Warn" diagnostic virtual text.
-		DiagnosticVirtualTextInfo({ fg = c.blue["300"], bg = c.cyan["950"] }), -- Used for "Info" diagnostic virtual text.
-		DiagnosticVirtualTextHint({ fg = c.cyan["300"], bg = c.blue["950"] }), -- Used for "Hint" diagnostic virtual text.
+		DiagnosticVirtualTextInfo({ fg = c.blue["300"], bg = c.blue["950"] }), -- Used for "Info" diagnostic virtual text.
+		DiagnosticVirtualTextHint({ fg = c.cyan["300"], bg = c.cyan["950"] }), -- Used for "Hint" diagnostic virtual text.
 		DiagnosticVirtualTextOk({ fg = c.green["300"], bg = c.green["950"] }), -- Used for "Ok" diagnostic virtual text.
 		DiagnosticUnderlineError({ gui = "underline", sp = c.red["300"] }), -- Used to underline "Error" diagnostics.
 		DiagnosticUnderlineWarn({ gui = "underline", sp = c.orange["300"] }), -- Used to underline "Warn" diagnostics.
