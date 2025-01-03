@@ -298,6 +298,7 @@ local theme = lush(function(injected_functions)
 		sym("@module")({ fg = c.orange["300"] }), -- modules or namespaces
 		-- sym("@module.builtin")({}), -- built-in modules or namespaces
 		sym("@label")({ fg = c.orange["300"] }), -- `GOTO` and other labels (e.g. `label:` in C), including heredoc labels
+		sym("@label.markdown")({ fg = c.green["300"] }), -- markdown label (e.g. ```txt`)
 
 		sym("@string")({ fg = c.green["300"] }), -- string literals
 		sym("@string.documentation")({ Comment }), -- string documenting code (e.g. Python docstrings)
@@ -316,6 +317,7 @@ local theme = lush(function(injected_functions)
 		sym("@number.float")({ fg = c.red["300"] }), -- floating-point number literals
 
 		sym("@type")({ fg = c.orange["300"] }), -- type or class definitions and annotations
+		sym("@lsp.type.class.markdown")({ fg = c.green["300"] }), -- markdown type (e.g. [!WARNING])
 		sym("@type.builtin")({ fg = c.orange["300"] }), -- built-in types
 		sym("@type.definition")({ fg = c.orange["300"] }), -- identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
 
@@ -376,6 +378,13 @@ local theme = lush(function(injected_functions)
 		sym("@markup.heading.4")({ fg = c.neutral["50"] }), -- and so on
 		sym("@markup.heading.5")({ fg = c.neutral["50"] }), -- and so forth
 		sym("@markup.heading.6")({ fg = c.neutral["50"] }), -- six levels ought to be enough for anybody
+		sym("@markup.heading.markdown")({ fg = c.orange["300"] }), -- markdown headings, titles (including markers)
+		sym("@markup.heading.1.markdown")({ fg = c.orange["300"] }), -- markdown top-level heading
+		sym("@markup.heading.2.markdown")({ fg = c.orange["300"] }), -- markdown section heading
+		sym("@markup.heading.3.markdown")({ fg = c.orange["300"] }), -- markdown subsection heading
+		sym("@markup.heading.4.markdown")({ fg = c.orange["300"] }), -- and so on
+		sym("@markup.heading.5.markdown")({ fg = c.orange["300"] }), -- and so forth
+		sym("@markup.heading.6.markdown")({ fg = c.orange["300"] }), -- six levels ought to be enough for anybody
 
 		sym("@markup.quote")({ gui = "italic", fg = c.cyan["300"] }), -- block quotes
 		sym("@markup.math")({ fg = c.blue["300"] }), -- math environments (e.g. `$ ... $` in LaTeX)
@@ -385,6 +394,7 @@ local theme = lush(function(injected_functions)
 		sym("@markup.link.url")({ fg = c.red["300"] }), -- URL-style links
 
 		sym("@markup.raw")({ fg = c.neutral["50"] }), -- literal or verbatim text (e.g. inline code)
+		sym("@markup.raw.markdown_inline")({ fg = c.green["300"] }), -- markdown literal or verbatim text (e.g. inline code)
 		sym("@markup.raw.block")({ fg = c.neutral["100"] }), -- literal or verbatim text as a stand-alone block
 
 		sym("@markup.list")({ fg = c.cyan["300"] }), -- list markers
