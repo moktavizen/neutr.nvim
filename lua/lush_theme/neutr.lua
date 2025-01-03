@@ -349,8 +349,8 @@ local theme = lush(function(injected_functions)
 		sym("@keyword.conditional")({ gui = "italic", fg = c.cyan["300"] }), -- keywords related to conditionals (e.g. `if`, `else`)
 		sym("@keyword.conditional.ternary")({ fg = c.cyan["300"] }), -- ternary operator (e.g. `?`, `:`)
 
-		sym("@keyword.directive")({ fg = c.cyan["300"] }), -- various preprocessor directives and shebangs
-		sym("@keyword.directive.define")({ fg = c.cyan["300"] }), -- preprocessor definition directives
+		sym("@keyword.directive")({ gui = "italic", fg = c.cyan["300"] }), -- various preprocessor directives and shebangs
+		sym("@keyword.directive.define")({ gui = "italic", fg = c.cyan["300"] }), -- preprocessor definition directives
 
 		sym("@punctuation.delimiter")({ fg = c.cyan["300"] }), -- delimiters (e.g. `;`, `.`, `,`)
 		sym("@punctuation.bracket")({ fg = c.cyan["300"] }), -- brackets (e.g. `()`, `{}`, `[]`)
@@ -370,12 +370,12 @@ local theme = lush(function(injected_functions)
 		sym("@markup.underline")({ Underlined }), -- underlined text (only for literal underline markup!)
 
 		sym("@markup.heading")({ fg = c.neutral["50"] }), -- headings, titles (including markers)
-		sym("@markup.heading.1")({ fg = c.orange["300"] }), -- top-level heading
-		sym("@markup.heading.2")({ fg = c.orange["300"] }), -- section heading
-		sym("@markup.heading.3")({ fg = c.orange["300"] }), -- subsection heading
-		sym("@markup.heading.4")({ fg = c.orange["300"] }), -- and so on
-		sym("@markup.heading.5")({ fg = c.orange["300"] }), -- and so forth
-		sym("@markup.heading.6")({ fg = c.orange["300"] }), -- six levels ought to be enough for anybody
+		sym("@markup.heading.1")({ fg = c.neutral["50"] }), -- top-level heading
+		sym("@markup.heading.2")({ fg = c.neutral["50"] }), -- section heading
+		sym("@markup.heading.3")({ fg = c.neutral["50"] }), -- subsection heading
+		sym("@markup.heading.4")({ fg = c.neutral["50"] }), -- and so on
+		sym("@markup.heading.5")({ fg = c.neutral["50"] }), -- and so forth
+		sym("@markup.heading.6")({ fg = c.neutral["50"] }), -- six levels ought to be enough for anybody
 
 		sym("@markup.quote")({ gui = "italic", fg = c.cyan["300"] }), -- block quotes
 		sym("@markup.math")({ fg = c.blue["300"] }), -- math environments (e.g. `$ ... $` in LaTeX)
@@ -384,7 +384,7 @@ local theme = lush(function(injected_functions)
 		sym("@markup.link.label")({ fg = c.green["300"] }), -- link, reference descriptions
 		sym("@markup.link.url")({ fg = c.red["300"] }), -- URL-style links
 
-		sym("@markup.raw")({ fg = c.green["300"] }), -- literal or verbatim text (e.g. inline code)
+		sym("@markup.raw")({ fg = c.neutral["50"] }), -- literal or verbatim text (e.g. inline code)
 		sym("@markup.raw.block")({ fg = c.neutral["100"] }), -- literal or verbatim text as a stand-alone block
 
 		sym("@markup.list")({ fg = c.cyan["300"] }), -- list markers
