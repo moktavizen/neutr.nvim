@@ -296,6 +296,7 @@ local theme = lush(function(injected_functions)
 		sym("@constant.macro")({ fg = c.blue["300"] }), -- constants defined by the preprocessor
 
 		sym("@module")({ fg = c.orange["300"] }), -- modules or namespaces
+		sym("@module.python")({ fg = c.neutral["50"] }), -- python modules or namespaces
 		-- sym("@module.builtin")({}), -- built-in modules or namespaces
 		sym("@label")({ fg = c.orange["300"] }), -- `GOTO` and other labels (e.g. `label:` in C), including heredoc labels
 		sym("@label.markdown")({ fg = c.green["300"] }), -- markdown label (e.g. ```txt`)
@@ -319,6 +320,8 @@ local theme = lush(function(injected_functions)
 		sym("@type")({ fg = c.orange["300"] }), -- type or class definitions and annotations
 		sym("@lsp.type.class.markdown")({ fg = c.green["300"] }), -- markdown type (e.g. [!WARNING])
 		sym("@type.builtin")({ fg = c.orange["300"] }), -- built-in types
+		sym("@type.builtin.c")({ fg = c.purple["300"] }), -- c built-in types
+		sym("@type.builtin.cpp")({ fg = c.purple["300"] }), -- cpp built-in types
 		sym("@type.definition")({ fg = c.orange["300"] }), -- identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
 
 		sym("@attribute")({ fg = c.purple["300"] }), -- attribute annotations (e.g. Python decorators, Rust lifetimes)
@@ -337,8 +340,11 @@ local theme = lush(function(injected_functions)
 		sym("@operator")({ fg = c.cyan["300"] }), -- symbolic operators (e.g. `+`, `*`)
 
 		sym("@keyword")({ fg = c.purple["300"] }), -- keywords not fitting into specific categories
+		sym("@keyword.c")({ fg = c.red["300"] }), -- c keywords not fitting into specific categories
+		sym("@keyword.cpp")({ fg = c.red["300"] }), -- cpp keywords not fitting into specific categories
 		sym("@keyword.coroutine")({ fg = c.purple["300"] }), -- keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
-		sym("@keyword.function")({ fg = c.red["300"] }), -- keywords that define a function (e.g. `func` in Go, `def` in Python)
+		sym("@keyword.function")({ fg = c.purple["300"] }), -- keywords that define a function (e.g. `func` in Go, `def` in Python)
+		sym("@keyword.function.rust")({ fg = c.red["300"] }), -- rust keywords that define a function (e.g. `func` in Go, `def` in Python)
 		sym("@keyword.operator")({ fg = c.cyan["300"] }), -- operators that are English words (e.g. `and`, `or`)
 		sym("@keyword.import")({ fg = c.cyan["300"] }), -- keywords for including modules (e.g. `import`, `from` in Python)
 		sym("@keyword.type")({ fg = c.purple["300"] }), -- keywords defining composite types (e.g. `struct`, `enum`)
