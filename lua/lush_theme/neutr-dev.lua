@@ -158,7 +158,7 @@ local theme = lush(function(injected_functions)
 		MsgArea({}), -- Area for messages and cmdline
 		MsgSeparator({}), -- Separator for scrolled messages, `msgsep` flag of 'display'
 		MoreMsg({ fg = c.blue["300"] }), -- |more-prompt|
-		Whitespace({ fg = c.neutral["600"] }), -- "nbsp", "space", "tab" and "trail" in 'listchars'
+		Whitespace({ fg = c.neutral["700"] }), -- "nbsp", "space", "tab" and "trail" in 'listchars'
 		Winseparator({ fg = c.neutral["400"] }), -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
 		WildMenu({ bg = c.neutral["600"] }), -- Current match in 'wildmenu' completion
 		WinBar({ fg = c.neutral["100"] }), -- Window bar of current window
