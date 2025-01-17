@@ -108,7 +108,7 @@ local theme = lush(function(injected_functions)
 		NormalNC({ fg = c.neutral["50"], bg = c.neutral["900"] }), -- normal text in non-current windows
 		NormalFloat({ fg = c.neutral["100"], bg = c.neutral["950"] }), -- Normal text in floating windows.
 		FloatBorder({ fg = c.neutral["400"], bg = c.neutral["950"] }), -- Border of floating windows.
-		FloatTitle({ Title }), -- Title of floating windows.
+		FloatTitle({ fg = c.neutral["50"], bg = c.neutral["950"] }), -- Title of floating windows.
 		ColorColumn({ bg = c.neutral["600"] }), -- Columns set with 'colorcolumn'
 		Conceal({ fg = c.neutral["300"] }), -- Placeholder characters substituted for concealed text (see 'conceallevel')
 		Cursor({ fg = c.neutral["900"], bg = c.neutral["50"] }), -- Character under the cursor
@@ -427,6 +427,10 @@ local theme = lush(function(injected_functions)
 		SnacksDashboardKey({ fg = c.blue["300"] }),
 		SnacksDashboardFooter({ fg = c.orange["300"] }),
 		SnacksDashboardSpecial({ fg = c.orange["300"] }),
+		SnacksPickerDir({ fg = c.neutral["300"] }),
+		SnacksPickerTotals({ fg = c.neutral["300"] }),
+		SnacksPickerBufFlags({ fg = c.neutral["300"] }),
+		SnacksPickerKeymapRhs({ fg = c.neutral["300"] }),
 		--
 		-- nvim-tree
 		--
