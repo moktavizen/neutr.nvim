@@ -86,7 +86,7 @@ local theme = lush(function(injected_functions)
 		IncSearch({ fg = c.neutral["950"], bg = c.yellow["300"] }), -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 		Search({ fg = c.neutral["950"], bg = c.blue["300"] }), -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
 		CurSearch({ fg = c.neutral["950"], bg = c.red["300"] }), -- Highlighting a search pattern under the cursor (see 'hlsearch')
-		MatchParen({ fg = c.neutral["900"], bg = c.blue["300"] }), -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+		MatchParen({ fg = c.yellow["300"], bg = c.neutral["700"] }), -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
 		Substitute({ fg = c.red["300"], bg = c.neutral["600"] }), -- |:substitute| replacement text highlighting
 		LineNr({ fg = c.neutral["500"] }), -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
 		LineNrAbove({ LineNr }), -- Line number for when the 'relativenumber' option is set, above the cursor line
