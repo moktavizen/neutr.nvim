@@ -1,4 +1,4 @@
-local c = require("lua.palette")
+local c = require("palette")
 
 local colors = {
 	blue = c.blue["300"],

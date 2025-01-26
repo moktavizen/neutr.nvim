@@ -44,7 +44,7 @@
 
 local lush = require("lush")
 
-local c = require("lua.palette")
+local c = require("palette")
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
