@@ -1,14 +1,12 @@
-local c = require("palette")
-
 local colors = {
-	blue = c.blue["300"],
-	green = c.green["300"],
-	black = c.neutral["900"],
-	white = c.neutral["50"],
-	red = c.red["300"],
-	magenta = c.magenta["300"],
-	grey = c.neutral["700"],
-	light_grey = c.neutral["300"],
+	blue = "#97aef2",
+	green = "#c4f297",
+	black = "#1f1f1f",
+	white = "#ebebeb",
+	red = "#f29797",
+	magenta = "#c497f2",
+	grey = "#373737",
+	light_grey = "#868686",
 }
 
 return {
