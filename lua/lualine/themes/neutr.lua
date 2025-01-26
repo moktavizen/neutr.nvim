@@ -1,12 +1,14 @@
+local c = require("lua.palette")
+
 local colors = {
-	blue = "#97b4f2",
-	green = "#cdf297",
-	black = "#212121",
-	white = "#ececec",
-	red = "#f2979c",
-	purple = "#cd97f2",
-	grey = "#383838",
-	light_grey = "#888888",
+	blue = c.blue["300"],
+	green = c.green["300"],
+	black = c.neutral["900"],
+	white = c.neutral["50"],
+	red = c.red["300"],
+	magenta = c.magenta["300"],
+	grey = c.neutral["700"],
+	light_grey = c.neutral["300"],
 }
 
 return {
@@ -17,7 +19,7 @@ return {
 	},
 
 	insert = { a = { gui = "bold", fg = colors.black, bg = colors.green } },
-	visual = { a = { gui = "bold", fg = colors.black, bg = colors.purple } },
+	visual = { a = { gui = "bold", fg = colors.black, bg = colors.magenta } },
 	replace = { a = { gui = "bold", fg = colors.black, bg = colors.red } },
 
 	inactive = {

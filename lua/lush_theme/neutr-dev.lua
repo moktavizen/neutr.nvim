@@ -43,49 +43,8 @@
 --  `:lua require('lush').ify()`
 
 local lush = require("lush")
-local hsl = lush.hsl
 
-local colors = {
-	neutral = {
-		["50"] = hsl("#ececec"),
-		["100"] = hsl("#c3c3c3"),
-		["200"] = hsl("#9c9c9c"),
-		["300"] = hsl("#888888"),
-		["400"] = hsl("#737373"),
-		["500"] = hsl("#5d5d5d"),
-		["600"] = hsl("#4a4a4a"),
-		["700"] = hsl("#383838"),
-		["800"] = hsl("#2e2e2e"),
-		["900"] = hsl("#212121"),
-		["950"] = hsl("#171717"),
-	},
-	red = {
-		["300"] = hsl("#f2979c"),
-		["950"] = hsl("#352c2d"),
-	},
-	orange = {
-		["300"] = hsl("#f2d297"),
-		["950"] = hsl("#35322c"),
-	},
-	green = {
-		["300"] = hsl("#cdf297"),
-		["950"] = hsl("#31352c"),
-	},
-	cyan = {
-		["300"] = hsl("#97d8f2"),
-		["500"] = hsl("#b6cad2"),
-		["950"] = hsl("#2c3235"),
-	},
-	blue = {
-		["300"] = hsl("#97b4f2"),
-		["950"] = hsl("#2c2f35"),
-	},
-	purple = {
-		["300"] = hsl("#cd97f2"),
-	},
-}
-
-local c = colors
+local c = require("lua.palette")
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
@@ -124,7 +83,7 @@ local theme = lush(function(injected_functions)
 		Folded({ fg = c.neutral["200"], bg = c.neutral["800"] }), -- Line used for closed folds
 		FoldColumn({ fg = c.neutral["600"] }), -- 'foldcolumn'
 		SignColumn({ fg = c.neutral["600"] }), -- Column where |signs| are displayed
-		IncSearch({ fg = c.neutral["950"], bg = c.orange["300"] }), -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+		IncSearch({ fg = c.neutral["950"], bg = c.yellow["300"] }), -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 		Search({ fg = c.neutral["950"], bg = c.blue["300"] }), -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
 		CurSearch({ fg = c.neutral["950"], bg = c.red["300"] }), -- Highlighting a search pattern under the cursor (see 'hlsearch')
 		MatchParen({ fg = c.neutral["900"], bg = c.blue["300"] }), -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
@@ -164,11 +123,11 @@ local theme = lush(function(injected_functions)
 		WinBar({ fg = c.neutral["100"] }), -- Window bar of current window
 		WinBarNC({ fg = c.neutral["500"] }), -- Window bar of not-current windows
 		SpellBad({ gui = "undercurl", sp = c.red["300"] }), -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
-		SpellCap({ gui = "undercurl", sp = c.orange["300"] }), -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
+		SpellCap({ gui = "undercurl", sp = c.yellow["300"] }), -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
 		SpellLocal({ gui = "undercurl", sp = c.blue["300"] }), -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
 		SpellRare({ gui = "undercurl", sp = c.green["300"] }), -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
 		ErrorMsg({ gui = "bold,italic", fg = c.red["300"] }), -- Error messages on the command line
-		WarningMsg({ fg = c.orange["300"] }), -- Warning messages
+		WarningMsg({ fg = c.yellow["300"] }), -- Warning messages
 		DiffAdd({ bg = c.green["950"] }), -- Diff mode: Added line |diff.txt|
 		DiffChange({ bg = c.blue["950"] }), -- Diff mode: Changed line |diff.txt|
 		DiffDelete({ bg = c.red["950"] }), -- Diff mode: Deleted line |diff.txt|
@@ -200,16 +159,16 @@ local theme = lush(function(injected_functions)
 		Repeat({ fg = c.cyan["300"] }), --   for, do, while, etc.
 		Label({ fg = c.cyan["300"] }), --   case, default, etc.
 		Operator({ fg = c.cyan["300"] }), --   "sizeof", "+", "*", etc.
-		Keyword({ fg = c.purple["300"] }), --   any other keyword
+		Keyword({ fg = c.magenta["300"] }), --   any other keyword
 		Exception({ fg = c.red["300"] }), --   try, catch, throw
 
-		PreProc({ fg = c.purple["300"] }), -- (*) Generic Preprocessor
+		PreProc({ fg = c.magenta["300"] }), -- (*) Generic Preprocessor
 		Include({ fg = c.cyan["300"] }), --   Preprocessor #include
 		Define({ fg = c.cyan["300"] }), --   Preprocessor #define
 		Macro({ fg = c.blue["300"] }), --   Same as Define
 		PreCondit({ fg = c.blue["300"] }), --   Preprocessor #if, #else, #endif, etc.
 
-		Type({ fg = c.purple["300"] }), -- (*) int, long, char, etc.
+		Type({ fg = c.magenta["300"] }), -- (*) int, long, char, etc.
 		StorageClass({ fg = c.cyan["500"] }), --   static, register, volatile, etc.
 		Structure({ fg = c.cyan["300"] }), --   struct, union, enum, etc.
 		Typedef({ fg = c.red["300"] }), --   A typedef
@@ -219,7 +178,7 @@ local theme = lush(function(injected_functions)
 		Tag({ fg = c.red["300"] }), --   You can use CTRL-] on this
 		Delimiter({ fg = c.cyan["300"] }), --   Character that needs attention
 		SpecialComment({ gui = "italic", fg = c.neutral["200"] }), --   Special things inside a comment (e.g. '\n')
-		Debug({ fg = c.orange["300"] }), --   Debugging statements
+		Debug({ fg = c.yellow["300"] }), --   Debugging statements
 
 		Underlined({ gui = "underline" }), -- Text that stands out, HTML links
 		-- Ignore({}), -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
@@ -243,27 +202,27 @@ local theme = lush(function(injected_functions)
 		-- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
 		--
 		DiagnosticError({ fg = c.red["300"] }), -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-		DiagnosticWarn({ fg = c.orange["300"] }), -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+		DiagnosticWarn({ fg = c.yellow["300"] }), -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 		DiagnosticInfo({ fg = c.blue["300"] }), -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 		DiagnosticHint({ fg = c.cyan["300"] }), -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 		DiagnosticOk({ fg = c.green["300"] }), -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 		DiagnosticVirtualTextError({ fg = c.red["300"], bg = c.red["950"] }), -- Used for "Error" diagnostic virtual text.
-		DiagnosticVirtualTextWarn({ fg = c.orange["300"], bg = c.orange["950"] }), -- Used for "Warn" diagnostic virtual text.
+		DiagnosticVirtualTextWarn({ fg = c.yellow["300"], bg = c.yellow["950"] }), -- Used for "Warn" diagnostic virtual text.
 		DiagnosticVirtualTextInfo({ fg = c.blue["300"], bg = c.blue["950"] }), -- Used for "Info" diagnostic virtual text.
 		DiagnosticVirtualTextHint({ fg = c.cyan["300"], bg = c.cyan["950"] }), -- Used for "Hint" diagnostic virtual text.
 		DiagnosticVirtualTextOk({ fg = c.green["300"], bg = c.green["950"] }), -- Used for "Ok" diagnostic virtual text.
 		DiagnosticUnderlineError({ gui = "underline", sp = c.red["300"] }), -- Used to underline "Error" diagnostics.
-		DiagnosticUnderlineWarn({ gui = "underline", sp = c.orange["300"] }), -- Used to underline "Warn" diagnostics.
+		DiagnosticUnderlineWarn({ gui = "underline", sp = c.yellow["300"] }), -- Used to underline "Warn" diagnostics.
 		DiagnosticUnderlineInfo({ gui = "underline", sp = c.blue["300"] }), -- Used to underline "Info" diagnostics.
 		DiagnosticUnderlineHint({ gui = "underline", sp = c.cyan["300"] }), -- Used to underline "Hint" diagnostics.
 		DiagnosticUnderlineOk({ gui = "underline", sp = c.green["300"] }), -- Used to underline "Ok" diagnostics.
 		DiagnosticFloatingError({ fg = c.red["300"] }), -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
-		DiagnosticFloatingWarn({ fg = c.orange["300"] }), -- Used to color "Warn" diagnostic messages in diagnostics float.
+		DiagnosticFloatingWarn({ fg = c.yellow["300"] }), -- Used to color "Warn" diagnostic messages in diagnostics float.
 		DiagnosticFloatingInfo({ fg = c.blue["300"] }), -- Used to color "Info" diagnostic messages in diagnostics float.
 		DiagnosticFloatingHint({ fg = c.cyan["300"] }), -- Used to color "Hint" diagnostic messages in diagnostics float.
 		DiagnosticFloatingOk({ fg = c.green["300"] }), -- Used to color "Ok" diagnostic messages in diagnostics float.
 		DiagnosticSignError({ fg = c.red["300"] }), -- Used for "Error" signs in sign column.
-		DiagnosticSignWarn({ fg = c.orange["300"] }), -- Used for "Warn" signs in sign column.
+		DiagnosticSignWarn({ fg = c.yellow["300"] }), -- Used for "Warn" signs in sign column.
 		DiagnosticSignInfo({ fg = c.blue["300"] }), -- Used for "Info" signs in sign column.
 		DiagnosticSignHint({ fg = c.cyan["300"] }), -- Used for "Hint" signs in sign column.
 		DiagnosticSignOk({ fg = c.green["300"] }), -- Used for "Ok" signs in sign column.
@@ -295,10 +254,10 @@ local theme = lush(function(injected_functions)
 		sym("@constant.builtin")({ fg = c.cyan["300"] }), -- built-in constant values
 		sym("@constant.macro")({ fg = c.blue["300"] }), -- constants defined by the preprocessor
 
-		sym("@module")({ fg = c.orange["300"] }), -- modules or namespaces
+		sym("@module")({ fg = c.yellow["300"] }), -- modules or namespaces
 		sym("@module.python")({ fg = c.neutral["50"] }), -- python modules or namespaces
 		-- sym("@module.builtin")({}), -- built-in modules or namespaces
-		sym("@label")({ fg = c.orange["300"] }), -- `GOTO` and other labels (e.g. `label:` in C), including heredoc labels
+		sym("@label")({ fg = c.yellow["300"] }), -- `GOTO` and other labels (e.g. `label:` in C), including heredoc labels
 		sym("@label.markdown")({ fg = c.green["300"] }), -- markdown label (e.g. ```txt`)
 
 		sym("@string")({ fg = c.green["300"] }), -- string literals
@@ -317,15 +276,15 @@ local theme = lush(function(injected_functions)
 		sym("@number")({ fg = c.red["300"] }), -- numeric literals
 		sym("@number.float")({ fg = c.red["300"] }), -- floating-point number literals
 
-		sym("@type")({ fg = c.orange["300"] }), -- type or class definitions and annotations
+		sym("@type")({ fg = c.yellow["300"] }), -- type or class definitions and annotations
 		sym("@lsp.type.class.markdown")({ fg = c.green["300"] }), -- markdown type (e.g. [!WARNING])
-		sym("@type.builtin")({ fg = c.orange["300"] }), -- built-in types
-		sym("@type.builtin.c")({ fg = c.purple["300"] }), -- c built-in types
-		sym("@type.builtin.cpp")({ fg = c.purple["300"] }), -- cpp built-in types
-		sym("@type.definition")({ fg = c.orange["300"] }), -- identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
+		sym("@type.builtin")({ fg = c.yellow["300"] }), -- built-in types
+		sym("@type.builtin.c")({ fg = c.magenta["300"] }), -- c built-in types
+		sym("@type.builtin.cpp")({ fg = c.magenta["300"] }), -- cpp built-in types
+		sym("@type.definition")({ fg = c.yellow["300"] }), -- identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
 
-		sym("@attribute")({ fg = c.purple["300"] }), -- attribute annotations (e.g. Python decorators, Rust lifetimes)
-		sym("@attribute.builtin")({ fg = c.orange["300"] }), -- builtin annotations (e.g. `@property` in Python)
+		sym("@attribute")({ fg = c.magenta["300"] }), -- attribute annotations (e.g. Python decorators, Rust lifetimes)
+		sym("@attribute.builtin")({ fg = c.yellow["300"] }), -- builtin annotations (e.g. `@property` in Python)
 		sym("@property")({ fg = c.cyan["500"] }), -- the key in key/value pairs
 
 		sym("@function")({ fg = c.blue["300"] }), -- function definitions
@@ -336,22 +295,22 @@ local theme = lush(function(injected_functions)
 		sym("@function.method")({ fg = c.blue["300"] }), -- method definitions
 		sym("@function.method.call")({ fg = c.blue["300"] }), -- method calls
 
-		sym("@constructor")({ fg = c.purple["300"] }), -- constructor calls and definitions
+		sym("@constructor")({ fg = c.magenta["300"] }), -- constructor calls and definitions
 		sym("@operator")({ fg = c.cyan["300"] }), -- symbolic operators (e.g. `+`, `*`)
 
-		sym("@keyword")({ fg = c.purple["300"] }), -- keywords not fitting into specific categories
+		sym("@keyword")({ fg = c.magenta["300"] }), -- keywords not fitting into specific categories
 		sym("@keyword.c")({ fg = c.red["300"] }), -- c keywords not fitting into specific categories
 		sym("@keyword.cpp")({ fg = c.red["300"] }), -- cpp keywords not fitting into specific categories
-		sym("@keyword.coroutine")({ fg = c.purple["300"] }), -- keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
-		sym("@keyword.function")({ fg = c.purple["300"] }), -- keywords that define a function (e.g. `func` in Go, `def` in Python)
+		sym("@keyword.coroutine")({ fg = c.magenta["300"] }), -- keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
+		sym("@keyword.function")({ fg = c.magenta["300"] }), -- keywords that define a function (e.g. `func` in Go, `def` in Python)
 		sym("@keyword.function.rust")({ fg = c.red["300"] }), -- rust keywords that define a function (e.g. `func` in Go, `def` in Python)
 		sym("@keyword.operator")({ fg = c.cyan["300"] }), -- operators that are English words (e.g. `and`, `or`)
 		sym("@keyword.import")({ fg = c.cyan["300"] }), -- keywords for including modules (e.g. `import`, `from` in Python)
-		sym("@keyword.type")({ fg = c.purple["300"] }), -- keywords defining composite types (e.g. `struct`, `enum`)
-		sym("@keyword.modifier")({ fg = c.purple["300"] }), -- keywords defining type modifiers (e.g. `const`, `static`, `public`)
+		sym("@keyword.type")({ fg = c.magenta["300"] }), -- keywords defining composite types (e.g. `struct`, `enum`)
+		sym("@keyword.modifier")({ fg = c.magenta["300"] }), -- keywords defining type modifiers (e.g. `const`, `static`, `public`)
 		sym("@keyword.repeat")({ gui = "italic", fg = c.cyan["300"] }), -- keywords related to loops (e.g. `for`, `while`)
 		sym("@keyword.return")({ gui = "italic", fg = c.cyan["300"] }), -- keywords like `return` and `yield`
-		sym("@keyword.debug")({ gui = "italic", fg = c.orange["300"] }), -- keywords related to debugging
+		sym("@keyword.debug")({ gui = "italic", fg = c.yellow["300"] }), -- keywords related to debugging
 		sym("@keyword.exception")({ gui = "italic", fg = c.cyan["300"] }), -- keywords related to exceptions (e.g. `throw`, `catch`)
 
 		sym("@keyword.conditional")({ gui = "italic", fg = c.cyan["300"] }), -- keywords related to conditionals (e.g. `if`, `else`)
@@ -368,7 +327,7 @@ local theme = lush(function(injected_functions)
 		sym("@comment.documentation")({ Comment }), -- comments documenting code
 
 		sym("@comment.error")({ fg = c.red["300"] }), -- error-type comments (e.g. `ERROR`, `FIXME`, `DEPRECATED`)
-		sym("@comment.warning")({ fg = c.orange["300"] }), -- warning-type comments (e.g. `WARNING`, `FIX`, `HACK`)
+		sym("@comment.warning")({ fg = c.yellow["300"] }), -- warning-type comments (e.g. `WARNING`, `FIX`, `HACK`)
 		sym("@comment.todo")({ fg = c.blue["300"] }), -- todo-type comments (e.g. `TODO`, `WIP`)
 		sym("@comment.note")({ fg = c.cyan["300"] }), -- note-type comments (e.g. `NOTE`, `INFO`, `XXX`)
 
@@ -384,13 +343,13 @@ local theme = lush(function(injected_functions)
 		sym("@markup.heading.4")({ fg = c.neutral["50"] }), -- and so on
 		sym("@markup.heading.5")({ fg = c.neutral["50"] }), -- and so forth
 		sym("@markup.heading.6")({ fg = c.neutral["50"] }), -- six levels ought to be enough for anybody
-		sym("@markup.heading.markdown")({ fg = c.orange["300"] }), -- markdown headings, titles (including markers)
-		sym("@markup.heading.1.markdown")({ fg = c.orange["300"] }), -- markdown top-level heading
-		sym("@markup.heading.2.markdown")({ fg = c.orange["300"] }), -- markdown section heading
-		sym("@markup.heading.3.markdown")({ fg = c.orange["300"] }), -- markdown subsection heading
-		sym("@markup.heading.4.markdown")({ fg = c.orange["300"] }), -- and so on
-		sym("@markup.heading.5.markdown")({ fg = c.orange["300"] }), -- and so forth
-		sym("@markup.heading.6.markdown")({ fg = c.orange["300"] }), -- six levels ought to be enough for anybody
+		sym("@markup.heading.markdown")({ fg = c.yellow["300"] }), -- markdown headings, titles (including markers)
+		sym("@markup.heading.1.markdown")({ fg = c.yellow["300"] }), -- markdown top-level heading
+		sym("@markup.heading.2.markdown")({ fg = c.yellow["300"] }), -- markdown section heading
+		sym("@markup.heading.3.markdown")({ fg = c.yellow["300"] }), -- markdown subsection heading
+		sym("@markup.heading.4.markdown")({ fg = c.yellow["300"] }), -- and so on
+		sym("@markup.heading.5.markdown")({ fg = c.yellow["300"] }), -- and so forth
+		sym("@markup.heading.6.markdown")({ fg = c.yellow["300"] }), -- six levels ought to be enough for anybody
 
 		sym("@markup.quote")({ gui = "italic", fg = c.cyan["300"] }), -- block quotes
 		sym("@markup.math")({ fg = c.blue["300"] }), -- math environments (e.g. `$ ... $` in LaTeX)
@@ -413,7 +372,7 @@ local theme = lush(function(injected_functions)
 
 		sym("@tag")({ fg = c.red["300"] }), -- XML-style tag names (e.g. in XML, HTML, etc.)
 		-- sym("@tag.builtin")({}), -- XML-style tag names (e.g. HTML5 tags)
-		sym("@tag.attribute")({ fg = c.purple["300"] }), -- XML-style tag attributes
+		sym("@tag.attribute")({ fg = c.magenta["300"] }), -- XML-style tag attributes
 		sym("@tag.delimiter")({ fg = c.cyan["300"] }), -- XML-style tag delimiters
 
 		-- Plugins
@@ -422,11 +381,11 @@ local theme = lush(function(injected_functions)
 		--
 		SnacksIndentScope({ fg = c.neutral["500"] }),
 		SnacksDashboardHeader({ fg = c.neutral["50"] }),
-		SnacksDashboardDesc({ fg = c.purple["300"] }),
+		SnacksDashboardDesc({ fg = c.magenta["300"] }),
 		SnacksDashboardIcon({ fg = c.red["300"] }),
 		SnacksDashboardKey({ fg = c.blue["300"] }),
-		SnacksDashboardFooter({ fg = c.orange["300"] }),
-		SnacksDashboardSpecial({ fg = c.orange["300"] }),
+		SnacksDashboardFooter({ fg = c.yellow["300"] }),
+		SnacksDashboardSpecial({ fg = c.yellow["300"] }),
 		SnacksPickerDir({ fg = c.neutral["300"] }),
 		SnacksPickerTotals({ fg = c.neutral["300"] }),
 		SnacksPickerBufFlags({ fg = c.neutral["300"] }),
@@ -452,14 +411,14 @@ local theme = lush(function(injected_functions)
 		FzfLuaHeaderText({ fg = c.red["300"] }),
 		FzfLuaBufFlagCur({ fg = c.red["300"] }),
 		FzfLuaLiveSym({ fg = c.red["300"] }),
-		FzfLuaHeaderBind({ fg = c.orange["300"] }),
-		FzfLuaBufNr({ fg = c.orange["300"] }),
-		FzfLuaTabMarker({ fg = c.orange["300"] }),
+		FzfLuaHeaderBind({ fg = c.yellow["300"] }),
+		FzfLuaBufNr({ fg = c.yellow["300"] }),
+		FzfLuaTabMarker({ fg = c.yellow["300"] }),
 		FzfLuaPathLineNr({ fg = c.green["300"] }),
 		FzfLuaBufFlagAlt({ fg = c.cyan["300"] }),
 		FzfLuaPathColNr({ fg = c.cyan["300"] }),
 		FzfLuaTabTitle({ fg = c.blue["300"] }),
-		FzfLuaBufName({ fg = c.purple["300"] }),
+		FzfLuaBufName({ fg = c.magenta["300"] }),
 		--
 		-- gitsigns
 		--
