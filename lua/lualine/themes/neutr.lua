@@ -20,6 +20,12 @@ return {
 	visual = { a = { gui = "bold", fg = colors.black, bg = colors.magenta } },
 	replace = { a = { gui = "bold", fg = colors.black, bg = colors.red } },
 
+	command = {
+		a = { fg = colors.whte, bg = colors.black },
+		b = { fg = colors.whte, bg = colors.black },
+		c = { fg = colors.whte, bg = colors.black },
+	},
+
 	inactive = {
 		a = { fg = colors.light_grey, bg = colors.black },
 		b = { fg = colors.light_grey, bg = colors.black },

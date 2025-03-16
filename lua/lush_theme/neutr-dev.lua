@@ -106,8 +106,8 @@ local theme = lush(function(injected_functions)
 		PmenuThumb({ bg = c.neutral["700"] }), -- Popup menu: Thumb of the scrollbar.
 		Question({ fg = c.blue["300"] }), -- |hit-enter| prompt and yes/no questions
 		QuickFixLine({ bg = c.neutral["600"] }), -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-		StatusLine({ fg = c.neutral["100"], bg = c.neutral["950"] }), -- Status line of current window
-		StatusLineNC({ fg = c.neutral["600"], bg = c.neutral["950"] }), -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+		StatusLine({ fg = c.neutral["100"], bg = c.neutral["900"] }), -- Status line of current window
+		StatusLineNC({ fg = c.neutral["600"], bg = c.neutral["900"] }), -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 		TabLine({ fg = c.neutral["600"], bg = c.neutral["950"] }), -- Tab pages line, not active tab page label
 		TabLineFill({ bg = c.neutral["950"] }), -- Tab pages line, where there are no labels
 		TabLineSel({ Normal }), -- Tab pages line, active tab page label
@@ -395,7 +395,7 @@ local theme = lush(function(injected_functions)
 		--
 		NvimTreeRootFolder({ gui = "bold", fg = c.neutral["100"] }),
 		NvimTreeWinSeparator({ fg = c.neutral["950"], bg = c.neutral["950"] }),
-		NvimTreeNormal({ NormalFloat }),
+		NvimTreeNormal({ fg = c.neutral["100"], bg = c.neutral["950"] }),
 		NvimTreeCursorLine({ fg = c.blue["300"], bg = c.blue["950"] }),
 		--
 		-- bufferline
