@@ -398,6 +398,13 @@ local theme = lush(function(injected_functions)
 		NvimTreeNormal({ fg = c.neutral["100"], bg = c.neutral["950"] }),
 		NvimTreeCursorLine({ fg = c.blue["300"], bg = c.blue["950"] }),
 		--
+		-- neo-tree
+		--
+		NeoTreeRootName({ gui = "bold", fg = c.neutral["100"] }),
+		NeoTreeWinSeparator({ fg = c.neutral["950"], bg = c.neutral["950"] }),
+		NeoTreeNormal({ fg = c.neutral["100"], bg = c.neutral["950"] }),
+		NeoTreeCursorLine({ fg = c.blue["300"], bg = c.blue["950"] }),
+		--
 		-- bufferline
 		--
 		BufferLineOffset({ fg = c.neutral["50"], bg = c.neutral["950"] }),
