@@ -407,6 +407,7 @@ local theme = lush(function(injected_functions)
 		--
 		-- bufferline
 		--
+		BufferLineFill({ bg = c.neutral["900"] }),
 		BufferLineOffset({ fg = c.neutral["50"], bg = c.neutral["950"] }),
 		BufferlineOffsetSeparator({ NvimTreeWinSeparator }),
 		--
