@@ -43,8 +43,49 @@
 --  `:lua require('lush').ify()`
 
 local lush = require("lush")
+local hsl = lush.hsl
 
-local c = require("palette")
+local colors = {
+	neutral = {
+		["50"] = hsl("#ebebeb"),
+		["100"] = hsl("#c1c1c1"),
+		["200"] = hsl("#999999"),
+		["300"] = hsl("#868686"),
+		["400"] = hsl("#717171"),
+		["500"] = hsl("#5c5c5c"),
+		["600"] = hsl("#484848"),
+		["700"] = hsl("#373737"),
+		["800"] = hsl("#2c2c2c"),
+		["900"] = hsl("#1e1e1e"),
+		["950"] = hsl("#131313"),
+	},
+	red = {
+		["300"] = hsl("#f2979c"),
+		["950"] = hsl("#352c2d"),
+	},
+	yellow = {
+		["300"] = hsl("#f2d297"),
+		["950"] = hsl("#35322c"),
+	},
+	green = {
+		["300"] = hsl("#cdf297"),
+		["950"] = hsl("#31352c"),
+	},
+	cyan = {
+		["300"] = hsl("#97d8f2"),
+		["500"] = hsl("#b6cad2"),
+		["950"] = hsl("#2c3235"),
+	},
+	blue = {
+		["300"] = hsl("#97b4f2"),
+		["950"] = hsl("#2c2f35"),
+	},
+	magenta = {
+		["300"] = hsl("#cd97f2"),
+	},
+}
+
+local c = colors
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
