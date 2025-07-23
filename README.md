@@ -9,6 +9,7 @@ Neovim theme with neutral background color.
 ```lua
 return {
   'moktavizen/neutr.nvim',
+  lazy = false,
   priority = 1000,
   init = function()
     vim.cmd.colorscheme 'neutr'
