@@ -298,6 +298,11 @@ local hl_groups = {
   -- Plugins
   -- See :h [plugin-name]
 
+  -- gitsigns
+  GitSignsAdd                      = { link = 'Added'                                  },
+  GitSignsChange                   = { link = 'Changed'                                },
+  GitSignsDelete                   = { link = 'Removed'                                },
+
   -- snacks
   SnacksIndentScope                = { fg = c.neutral[500]                             },
   SnacksDashboardHeader            = { fg = c.neutral[50]                              },
