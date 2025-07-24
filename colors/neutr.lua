@@ -121,6 +121,10 @@ local hl_groups = {
   Todo                             = { fg = c.cyan[300]                                },
   Noise                            = { fg = c.cyan[300]                                },
 
+  Added                            = { fg = c.green[300]                               },
+  Changed                          = { fg = c.blue[300]                                },
+  Removed                          = { fg = c.red[300]                                 },
+
   -- Native LSP
   -- See :h lsp-highlight,
   LspReferenceText                 = { bg = c.neutral[700]                             },
@@ -339,11 +343,6 @@ local hl_groups = {
   FzfLuaPathColNr                  = { fg = c.cyan[300]                                },
   FzfLuaTabTitle                   = { fg = c.blue[300]                                },
   FzfLuaBufName                    = { fg = c.magenta[300]                             },
-
-  -- gitsigns
-  Added                            = { fg = c.green[300]                               },
-  Changed                          = { fg = c.blue[300]                                },
-  Removed                          = { fg = c.red[300]                                 },
 
   -- noice
   NoiceMini                        = { bg = c.neutral[950]                             },
