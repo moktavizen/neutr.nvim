@@ -25,9 +25,9 @@ local hl_groups = {
   Folded                           = { fg = c.neutral[200], bg = c.neutral[800]        },
   FoldColumn                       = { fg = c.neutral[600]                             },
   SignColumn                       = { fg = c.neutral[600]                             },
-  IncSearch                        = { fg = c.neutral[950], bg = c.yellow[300]         },
-  Search                           = { fg = c.neutral[950], bg = c.blue[300]           },
-  CurSearch                        = { fg = c.neutral[950], bg = c.red[300]            },
+  IncSearch                        = { fg = c.neutral[950], bg = c.blue[300]           },
+  Search                           = { fg = c.neutral[950], bg = c.yellow[300]         },
+  CurSearch                        = { fg = c.neutral[950], bg = c.blue[300]           },
   MatchParen                       = { fg = c.yellow[300],  bg = c.neutral[700]        },
   Substitute                       = { fg = c.red[300],     bg = c.neutral[600]        },
   LineNr                           = { fg = c.neutral[500]                             },
@@ -315,6 +315,7 @@ local hl_groups = {
   SnacksPickerTotals               = { fg = c.neutral[300]                             },
   SnacksPickerBufFlags             = { fg = c.neutral[300]                             },
   SnacksPickerKeymapRhs            = { fg = c.neutral[300]                             },
+  SnacksPickerMatch                = { link = 'DiagnosticWarn'                         },
 
   -- nvim-tree
   NvimTreeRootFolder               = { fg = c.neutral[100], bold = true                },
@@ -351,6 +352,7 @@ local hl_groups = {
 
   -- noice
   NoiceMini                        = { link = 'PmenuSbar'                              },
+  NoiceVirtualText                 = { fg = c.yellow[300],  bg = c.yellow[950]         },
 }
 
 -- colorschemes generally want to do this
