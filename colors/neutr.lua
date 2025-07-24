@@ -345,7 +345,7 @@ local hl_groups = {
   FzfLuaBufName                    = { fg = c.magenta[300]                             },
 
   -- noice
-  NoiceMini                        = { bg = c.neutral[950]                             },
+  NoiceMini                        = { link = 'PmenuSbar'                              },
 }
 
 -- colorschemes generally want to do this
