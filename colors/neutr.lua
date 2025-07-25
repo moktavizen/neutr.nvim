@@ -36,7 +36,7 @@ local hl_groups = {
   CursorLineNr                     = { fg = c.neutral[100]                             },
   CursorLineFold                   = { link = 'FoldColumn'                             },
   CursorLineSign                   = { link = 'SignColumn'                             },
-  NonText                          = { fg = c.neutral[700]                             },
+  NonText                          = { fg = c.neutral[400]                             },
   SpecialKey                       = { link = 'NonText'                                },
   Pmenu                            = { fg = c.neutral[100], bg = c.neutral[950]        },
   PmenuSel                         = { fg = c.blue[300],    bg = c.blue[950]           },
