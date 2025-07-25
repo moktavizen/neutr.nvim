@@ -1,4 +1,37 @@
+local config = require('neutr.config')
 local c = require('neutr.palette.dark')
+local Util = require('neutr.util')
+
+local style = config.opts.style
+local hue = config.opts.hue_degree
+
+local transform
+
+if style == 'colorful' then
+  if hue ~= 0 then
+    transform = function(hex)
+      return Util.add_hue(hex, hue)
+    end
+  end
+elseif style == 'monochrome' then
+  if hue ~= 0 then
+    transform = function(hex)
+      return Util.set_hue(hex, hue)
+    end
+  elseif hue == 0 then
+    transform = function(hex)
+      return Util.zero_chroma(hex)
+    end
+  end
+end
+
+if transform then
+  for color_name, shades in pairs(c) do
+    for shade, hex in pairs(shades) do
+      c[color_name][shade] = transform(hex)
+    end
+  end
+end
 
 -- stylua: ignore
 local hl_groups = {
@@ -355,14 +388,13 @@ local hl_groups = {
   NoiceVirtualText                 = { fg = c.yellow[300],  bg = c.yellow[950]         },
 }
 
--- colorschemes generally want to do this
 if vim.g.colors_name then
   vim.cmd('hi clear')
 end
+
 vim.o.termguicolors = true
 vim.g.colors_name = 'neutr'
 
--- apply highlight groups
 for group, hl in pairs(hl_groups) do
   vim.api.nvim_set_hl(0, group, hl)
 end
