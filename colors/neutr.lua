@@ -299,9 +299,9 @@ local hl_groups = {
   -- See :h [plugin-name]
 
   -- gitsigns
-  GitSignsAdd                      = { link = 'Added'                                  },
-  GitSignsChange                   = { link = 'Changed'                                },
-  GitSignsDelete                   = { link = 'Removed'                                },
+  GitSignsAdd                      = { fg = c.green[300]                               },
+  GitSignsChange                   = { fg = c.blue[300]                                },
+  GitSignsDelete                   = { fg = c.red[300]                                 },
 
   -- snacks
   SnacksIndentScope                = { fg = c.neutral[500]                             },
@@ -315,7 +315,7 @@ local hl_groups = {
   SnacksPickerTotals               = { fg = c.neutral[300]                             },
   SnacksPickerBufFlags             = { fg = c.neutral[300]                             },
   SnacksPickerKeymapRhs            = { fg = c.neutral[300]                             },
-  SnacksPickerMatch                = { link = 'DiagnosticWarn'                         },
+  SnacksPickerMatch                = { fg = c.yellow[300]                              },
 
   -- nvim-tree
   NvimTreeRootFolder               = { fg = c.neutral[100], bold = true                },
@@ -332,12 +332,12 @@ local hl_groups = {
   -- bufferline
   BufferLineFill                   = { bg = c.neutral[900]                             },
   BufferLineOffset                 = { fg = c.neutral[50],  bg = c.neutral[950]        },
-  BufferlineOffsetSeparator        = { link = 'NvimTreeWinSeparator'                   },
+  BufferlineOffsetSeparator        = { fg = c.neutral[950], bg = c.neutral[950]        },
 
   -- fzf-lua
-  FzfLuaNormal                     = { link = 'NormalFloat'                            },
-  FzfLuaBorder                     = { link = 'FloatBorder'                            },
-  FzfLuaPreviewNormal              = { link = 'NormalFloat'                            },
+  FzfLuaNormal                     = { fg = c.neutral[100], bg = c.neutral[950]        },
+  FzfLuaPreviewNormal              = { fg = c.neutral[100], bg = c.neutral[950]        },
+  FzfLuaBorder                     = { fg = c.neutral[400], bg = c.neutral[950]        },
   FzfLuaHeaderText                 = { fg = c.red[300]                                 },
   FzfLuaBufFlagCur                 = { fg = c.red[300]                                 },
   FzfLuaLiveSym                    = { fg = c.red[300]                                 },
@@ -351,7 +351,7 @@ local hl_groups = {
   FzfLuaBufName                    = { fg = c.magenta[300]                             },
 
   -- noice
-  NoiceMini                        = { link = 'PmenuSbar'                              },
+  NoiceMini                        = { bg = c.neutral[950]                             },
   NoiceVirtualText                 = { fg = c.yellow[300],  bg = c.yellow[950]         },
 }
 
