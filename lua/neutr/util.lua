@@ -1,7 +1,5 @@
-local ColorUtils = require('mini.colors')
+local MiniColors = require('mini.colors')
 local config = require('neutr.config')
-
-local tint = config.opts.tint_strength
 
 local M = {}
 
@@ -21,7 +19,7 @@ end
 
 local function modify_color(hex, f)
   local convert_opts = { adjust_lightness = false }
-  local oklch = ColorUtils.convert(hex, 'oklch', convert_opts)
+  local oklch = MiniColors.convert(hex, 'oklch', convert_opts)
 
   if not oklch then
     show_conversion_error(hex)
@@ -30,9 +28,11 @@ local function modify_color(hex, f)
 
   f(oklch)
 
-  local new_hex = ColorUtils.convert(oklch, 'hex', convert_opts)
+  local new_hex = MiniColors.convert(oklch, 'hex', convert_opts)
   return tostring(new_hex)
 end
+
+local tint = config.opts.tint_strength
 
 function M.set_hue(hex, hue)
   if not is_valid_hue(hue) then

@@ -1,6 +1,6 @@
 local config = require('neutr.config')
+local U = require('neutr.util')
 local c = require('neutr.palette.dark')
-local Util = require('neutr.util')
 
 local style = config.opts.style
 local hue = config.opts.hue_degree
@@ -10,17 +10,17 @@ local transform
 if style == 'colorful' then
   if hue ~= 0 then
     transform = function(hex)
-      return Util.add_hue(hex, hue)
+      return U.add_hue(hex, hue)
     end
   end
 elseif style == 'monochrome' then
   if hue ~= 0 then
     transform = function(hex)
-      return Util.set_hue(hex, hue)
+      return U.set_hue(hex, hue)
     end
   elseif hue == 0 then
     transform = function(hex)
-      return Util.zero_chroma(hex)
+      return U.zero_chroma(hex)
     end
   end
 end
