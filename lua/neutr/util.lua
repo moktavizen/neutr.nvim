@@ -40,12 +40,14 @@ function M.set_hue(hex, hue)
     return hex
   end
 
-  return modify_hex_oklch(hex, function(oklch)
+  local new_hex = modify_hex_oklch(hex, function(oklch)
     if oklch.h == nil then
       oklch.c = tint
     end
     oklch.h = hue
   end)
+
+  return new_hex
 end
 
 function M.add_hue(hex, hue)
@@ -54,21 +56,25 @@ function M.add_hue(hex, hue)
     return hex
   end
 
-  return modify_hex_oklch(hex, function(oklch)
+  local new_hex = modify_hex_oklch(hex, function(oklch)
     if oklch.h == nil then
       oklch.c = tint
       oklch.h = 0 -- Starting value for arithmetic operation
     end
     oklch.h = (oklch.h + hue) % 360
   end)
+
+  return new_hex
 end
 
 function M.zero_chroma(hex)
-  return modify_hex_oklch(hex, function(oklch)
+  local new_hex = modify_hex_oklch(hex, function(oklch)
     if oklch.h ~= nil then
       oklch.c = 0
     end
   end)
+
+  return new_hex
 end
 
 return M
