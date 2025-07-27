@@ -77,4 +77,29 @@ function M.zero_chroma(hex)
   return new_hex
 end
 
+function M.set_lightness(hex, lightness)
+  local new_hex = modify_hex_oklch(hex, function(oklch)
+    oklch.l = lightness
+  end)
+
+  return new_hex
+end
+
+function M.dim(hex)
+  local new_hex = modify_hex_oklch(hex, function(oklch)
+    oklch.l = oklch.l * 0.40
+    oklch.c = oklch.c * 0.20
+  end)
+
+  return new_hex
+end
+
+function M.pale(hex)
+  local new_hex = modify_hex_oklch(hex, function(oklch)
+    oklch.c = oklch.c * 0.33
+  end)
+
+  return new_hex
+end
+
 return M

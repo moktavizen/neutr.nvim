@@ -1,41 +1,61 @@
+local U = require('neutr.util')
+
+-- stylua: ignore
+local p   = {
+  bg_alt  = '#131313',
+  bg      = '#1e1e1e',
+  bg_1    = '#2c2c2c',
+  bg_2    = '#373737',
+  fg_2    = '#717171',
+  fg_1    = '#868686',
+  fg_alt  = '#999999',
+  fg      = '#ebebeb',
+  red     = '#f2979c',
+  green   = '#cdf297',
+  yellow  = '#f2d297',
+  blue    = '#97b4f2',
+  magenta = '#cd97f2',
+  cyan    = '#97d8f2',
+}
+
 -- stylua: ignore
 local colors =    {
   neutral    =    {
-    [50]     =    '#ebebeb',
-    [100]    =    '#c1c1c1',
-    [200]    =    '#999999',
-    [300]    =    '#868686',
-    [400]    =    '#717171',
-    [500]    =    '#5c5c5c',
-    [600]    =    '#484848',
-    [700]    =    '#373737',
-    [800]    =    '#2c2c2c',
-    [900]    =    '#1e1e1e',
-    [950]    =    '#131313',
+    [50]     =    p.fg,
+    [100]    =    U.set_lightness(p.fg, 80),
+    [200]    =    p.fg_alt,
+    [300]    =    p.fg_1,
+    [400]    =    p.fg_2,
+    [500]    =    U.set_lightness(p.fg, 50),
+    [600]    =    U.set_lightness(p.fg, 40),
+    [700]    =    p.bg_2,
+    [800]    =    p.bg_1,
+    [900]    =    p.bg,
+    [950]    =    p.bg_alt
   },
   red        =    {
-    [300]    =    '#f2979c',
-    [950]    =    '#352c2d',
+    [300]    =    p.red,
+    [950]    =    U.dim(p.red),
   },
   green      =    {
-    [300]    =    '#cdf297',
-    [950]    =    '#31352c',
+    [300]    =    p.green,
+    [950]    =    U.dim(p.green),
   },
   yellow     =    {
-    [300]    =    '#f2d297',
-    [950]    =    '#35322c',
+    [300]    =    p.yellow,
+    [950]    =    U.dim(p.yellow),
   },
   blue       =    {
-    [300]    =    '#97b4f2',
-    [950]    =    '#2c2f35',
+    [300]    =    p.blue,
+    [950]    =    U.dim(p.blue),
   },
   magenta    =    {
-    [300]    =    '#cd97f2',
+    [300]    =    p.magenta,
   },
   cyan       =    {
-    [300]    =    '#97d8f2',
-    [500]    =    '#b6cad2',
-    [950]    =    '#2c3235',
+    [300]    =    p.cyan,
+    [500]    =    U.pale(p.cyan),
+    [950]    =    U.dim(p.cyan),
   },
 }
 
