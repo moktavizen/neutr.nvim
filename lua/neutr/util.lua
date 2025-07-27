@@ -17,7 +17,7 @@ local function show_conversion_error(hex)
   vim.notify(msg, vim.log.levels.ERROR, { title = 'Conversion Error' })
 end
 
-local function modify_color(hex, f)
+local function modify_hex_oklch(hex, f)
   local convert_opts = { adjust_lightness = false }
   local oklch = MiniColors.convert(hex, 'oklch', convert_opts)
 
@@ -40,7 +40,7 @@ function M.set_hue(hex, hue)
     return hex
   end
 
-  return modify_color(hex, function(oklch)
+  return modify_hex_oklch(hex, function(oklch)
     if oklch.h == nil then
       oklch.c = tint
     end
@@ -54,7 +54,7 @@ function M.add_hue(hex, hue)
     return hex
   end
 
-  return modify_color(hex, function(oklch)
+  return modify_hex_oklch(hex, function(oklch)
     if oklch.h == nil then
       oklch.c = tint
       oklch.h = 0 -- Starting value for arithmetic operation
@@ -64,7 +64,7 @@ function M.add_hue(hex, hue)
 end
 
 function M.zero_chroma(hex)
-  return modify_color(hex, function(oklch)
+  return modify_hex_oklch(hex, function(oklch)
     if oklch.h ~= nil then
       oklch.c = 0
     end
