@@ -3,8 +3,11 @@ local MiniColors = require('mini.colors')
 local M = {}
 
 local function convert(x, to_space)
-  -- Don't adjust lightness, just like CSS
-  return MiniColors.convert(x, to_space, { adjust_lightness = true })
+  local convert_opts = {
+    -- Don't adjust lightness, just like CSS
+    adjust_lightness = false,
+  }
+  return MiniColors.convert(x, to_space, convert_opts)
 end
 
 local function show_conversion_error(color)
@@ -85,7 +88,7 @@ end
 function M.dim(hex)
   local new_hex = color_mod_oklch(hex, function(oklch)
     oklch.l = 30
-    oklch.c = 1.5
+    oklch.c = 2
     return oklch
   end)
 
