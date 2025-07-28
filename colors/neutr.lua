@@ -2,33 +2,14 @@ local config = require('neutr.config')
 local U = require('neutr.util')
 local c = require('neutr.palette.dark')
 
-local style = config.opts.style
-local hue = config.opts.hue_degree
+local hue = config.opts.hue
+local chroma = config.opts.bg_chroma * 100
+local percentage = config.opts.fg_hue_mix
 
-local transform
-
-if style == 'colorful' then
-  if hue ~= 0 then
-    transform = function(hex)
-      return U.add_hue(hex, hue)
-    end
-  end
-elseif style == 'monochrome' then
-  if hue ~= 0 then
-    transform = function(hex)
-      return U.set_hue(hex, hue)
-    end
-  elseif hue == 0 then
-    transform = function(hex)
-      return U.zero_chroma(hex)
-    end
-  end
-end
-
-if transform then
+if chroma ~= 0 or percentage ~= 0 then
   for color_name, shades in pairs(c) do
     for shade, hex in pairs(shades) do
-      c[color_name][shade] = transform(hex)
+      c[color_name][shade] = U.mix_hue(hex, chroma, hue, percentage)
     end
   end
 end

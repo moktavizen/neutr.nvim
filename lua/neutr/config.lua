@@ -1,9 +1,9 @@
 local M = {}
 
 M.opts = {
-  style = 'colorful',
-  hue_degree = 0,
-  tint_strength = 3,
+  hue = 0,
+  bg_chroma = 0,
+  fg_hue_mix = 0,
 }
 
 return M
