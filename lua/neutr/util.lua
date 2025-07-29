@@ -6,6 +6,8 @@ local function convert(x, to_space)
   local convert_opts = {
     -- Don't adjust lightness, just like CSS
     adjust_lightness = false,
+    -- Prevent @string to whiten when in hue 284 and mix 100
+    gamut_clip = 'cusp',
   }
   return MiniColors.convert(x, to_space, convert_opts)
 end
