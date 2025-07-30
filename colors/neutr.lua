@@ -43,7 +43,7 @@ local hl_groups = {
   Search                           = { fg = c.neutral[950], bg = c.yellow[300]         },
   CurSearch                        = { fg = c.neutral[950], bg = c.blue[300]           },
   MatchParen                       = { fg = c.yellow[300],  bg = c.neutral[700]        },
-  Substitute                       = { fg = c.red[300],     bg = c.neutral[600]        },
+  Substitute                       = { fg = c.neutral[950], bg = c.red[300]            },
   LineNr                           = { fg = c.neutral[500]                             },
   LineNrAbove                      = { link = 'LineNr'                                 },
   LineNrBelow                      = { link = 'LineNr'                                 },
@@ -366,7 +366,6 @@ local hl_groups = {
 
   -- noice
   NoiceMini                        = { bg = c.neutral[950]                             },
-  NoiceVirtualText                 = { fg = c.yellow[300],  bg = c.yellow[950]         },
 }
 
 if vim.g.colors_name then
