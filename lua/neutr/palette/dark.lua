@@ -17,6 +17,7 @@ local p   = {
 }
 
 local dim = { l = 30, c = 2 }
+local semi_dim = { l = 50, c = 5 }
 local pale = { c = 0.33 }
 
 -- stylua: ignore
@@ -36,10 +37,12 @@ local colors =    {
   },
   red        =    {
     [300]    =    p.red,
+    [500]    =    U.set_lch(p.red, { l = semi_dim.l, c = semi_dim.c }),
     [950]    =    U.set_lch(p.red, { l = dim.l, c = dim.c }),
   },
   green      =    {
     [300]    =    p.green,
+    [500]    =    U.set_lch(p.green, { l = semi_dim.l, c = semi_dim.c }),
     [950]    =    U.set_lch(p.green, { l = dim.l, c = dim.c }),
   },
   yellow     =    {
@@ -48,6 +51,7 @@ local colors =    {
   },
   blue       =    {
     [300]    =    p.blue,
+    [500]    =    U.set_lch(p.blue, { l = semi_dim.l, c = semi_dim.c }),
     [950]    =    U.set_lch(p.blue, { l = dim.l, c = dim.c }),
   },
   magenta    =    {

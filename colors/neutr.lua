@@ -378,6 +378,12 @@ local hl_groups = {
   MiniStatuslineFileinfo           = { link = 'MiniStatuslineDevinfo'                      },
   MiniStatuslineFilename           = { fg = c.neutral[300], bg = c.neutral[900]            },
   MiniStatuslineInactive           = { link = 'MiniStatuslineFilename'                     },
+
+  -- mini.diff
+  MiniDiffSignAdd                  = { fg = c.green[500] },
+  MiniDiffSignChange               = { fg = c.blue[500]  },
+  MiniDiffSignDelete               = { fg = c.red[500]   },
+
 }
 
 if vim.g.colors_name then
