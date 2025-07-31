@@ -38,21 +38,21 @@ local colors = {
   red     =  {
     s300  =  p.red,
     s500  =  U.set_lch(p.red, { l = s500.l, c = s500.c }),
-    s950  =  U.set_lch(p.red, { l = s800.l, c = s800.c }),
+    s800  =  U.set_lch(p.red, { l = s800.l, c = s800.c }),
   },
   green   =  {
     s300  =  p.green,
     s500  =  U.set_lch(p.green, { l = s500.l, c = s500.c }),
-    s950  =  U.set_lch(p.green, { l = s800.l, c = s800.c }),
+    s800  =  U.set_lch(p.green, { l = s800.l, c = s800.c }),
   },
   yellow  =  {
     s300  =  p.yellow,
-    s950  =  U.set_lch(p.yellow, { l = s800.l, c = s800.c }),
+    s800  =  U.set_lch(p.yellow, { l = s800.l, c = s800.c }),
   },
   blue    =  {
     s300  =  p.blue,
     s500  =  U.set_lch(p.blue, { l = s500.l, c = s500.c }),
-    s950  =  U.set_lch(p.blue, { l = s800.l, c = s800.c }),
+    s800  =  U.set_lch(p.blue, { l = s800.l, c = s800.c }),
   },
   magenta =  {
     s300  =  p.magenta,
@@ -60,7 +60,7 @@ local colors = {
   cyan    =  {
     s300  =  p.cyan,
     s500  =  U.rel_lch(p.cyan, { c = pale.c }),
-    s950  =  U.set_lch(p.cyan, { l = s800.l, c = s800.c }),
+    s800  =  U.set_lch(p.cyan, { l = s800.l, c = s800.c }),
   },
 }
 

@@ -53,7 +53,7 @@ local hl_groups = {
   NonText                          = { fg = c.neutral.s400                                 },
   SpecialKey                       = { link = 'NonText'                                    },
   Pmenu                            = { fg = c.neutral.s100, bg = c.neutral.s950            },
-  PmenuSel                         = { fg = c.blue.s300,    bg = c.blue.s950               },
+  PmenuSel                         = { fg = c.blue.s300,    bg = c.blue.s800               },
   PmenuKind                        = { link = 'Pmenu'                                      },
   PmenuKindSel                     = { link = 'PmenuSel'                                   },
   PmenuExtra                       = { link = 'Pmenu'                                      },
@@ -84,10 +84,10 @@ local hl_groups = {
   SpellRare                        = { sp = c.green.s300,   undercurl = true               },
   ErrorMsg                         = { fg = c.red.s300,     bold = true, italic = true     },
   WarningMsg                       = { fg = c.yellow.s300                                  },
-  DiffAdd                          = { bg = c.green.s950                                   },
-  DiffChange                       = { bg = c.blue.s950                                    },
-  DiffDelete                       = { bg = c.red.s950                                     },
-  DiffText                         = { bg = c.cyan.s950                                    },
+  DiffAdd                          = { bg = c.green.s800                                   },
+  DiffChange                       = { bg = c.blue.s800                                    },
+  DiffDelete                       = { bg = c.red.s800                                     },
+  DiffText                         = { bg = c.cyan.s800                                    },
 
   -- Native Syntax
   -- See :h group-name
@@ -131,7 +131,7 @@ local hl_groups = {
 
   Underlined                       = { underline = true                                    },
   -- Ignore = {},
-  Error                            = { fg = c.red.s300,     bg = c.red.s950                },
+  Error                            = { fg = c.red.s300,     bg = c.red.s800                },
   Todo                             = { fg = c.cyan.s300                                    },
   Noise                            = { fg = c.cyan.s300                                    },
 
@@ -155,11 +155,11 @@ local hl_groups = {
   DiagnosticInfo                   = { fg = c.blue.s300                                    },
   DiagnosticHint                   = { fg = c.cyan.s300                                    },
   DiagnosticOk                     = { fg = c.green.s300                                   },
-  DiagnosticVirtualTextError       = { fg = c.red.s300,     bg = c.red.s950                },
-  DiagnosticVirtualTextWarn        = { fg = c.yellow.s300,  bg = c.yellow.s950             },
-  DiagnosticVirtualTextInfo        = { fg = c.blue.s300,    bg = c.blue.s950               },
-  DiagnosticVirtualTextHint        = { fg = c.cyan.s300,    bg = c.cyan.s950               },
-  DiagnosticVirtualTextOk          = { fg = c.green.s300,   bg = c.green.s950              },
+  DiagnosticVirtualTextError       = { fg = c.red.s300,     bg = c.red.s800                },
+  DiagnosticVirtualTextWarn        = { fg = c.yellow.s300,  bg = c.yellow.s800             },
+  DiagnosticVirtualTextInfo        = { fg = c.blue.s300,    bg = c.blue.s800               },
+  DiagnosticVirtualTextHint        = { fg = c.cyan.s300,    bg = c.cyan.s800               },
+  DiagnosticVirtualTextOk          = { fg = c.green.s300,   bg = c.green.s800              },
   DiagnosticUnderlineError         = { sp = c.red.s300,     underline = true               },
   DiagnosticUnderlineWarn          = { sp = c.yellow.s300,  underline = true               },
   DiagnosticUnderlineInfo          = { sp = c.blue.s300,    underline = true               },
@@ -335,13 +335,13 @@ local hl_groups = {
   NvimTreeRootFolder               = { fg = c.neutral.s100, bold = true                    },
   NvimTreeWinSeparator             = { fg = c.neutral.s950, bg = c.neutral.s950            },
   NvimTreeNormal                   = { fg = c.neutral.s100, bg = c.neutral.s950            },
-  NvimTreeCursorLine               = { fg = c.blue.s300,    bg = c.blue.s950               },
+  NvimTreeCursorLine               = { fg = c.blue.s300,    bg = c.blue.s800               },
 
   -- neo-tree
   NeoTreeRootName                  = { fg = c.neutral.s100, bold = true                    },
   NeoTreeWinSeparator              = { fg = c.neutral.s950, bg = c.neutral.s950            },
   NeoTreeNormal                    = { fg = c.neutral.s100, bg = c.neutral.s950            },
-  NeoTreeCursorLine                = { fg = c.blue.s300,    bg = c.blue.s950               },
+  NeoTreeCursorLine                = { fg = c.blue.s300,    bg = c.blue.s800               },
 
   -- bufferline
   BufferLineFill                   = { bg = c.neutral.s900                                 },
