@@ -366,6 +366,18 @@ local hl_groups = {
 
   -- noice
   NoiceMini                        = { bg = c.neutral[950]                             },
+
+  -- mini.statusline
+  MiniStatuslineModeNormal         = { fg = c.neutral[900], bg = c.blue[300],    bold=true },
+  MiniStatuslineModeInsert         = { fg = c.neutral[900], bg = c.green[300],   bold=true },
+  MiniStatuslineModeVisual         = { fg = c.neutral[900], bg = c.magenta[300], bold=true },
+  MiniStatuslineModeCommand        = { fg = c.neutral[900], bg = c.cyan[300],    bold=true },
+  MiniStatuslineModeDelete         = { fg = c.neutral[900], bg = c.red[300],     bold=true },
+  MiniStatuslineModeOther          = { fg = c.neutral[900], bg = c.yellow[300],  bold=true },
+  MiniStatuslineDevinfo            = { fg = c.neutral[50],  bg = c.neutral[700]            },
+  MiniStatuslineFileinfo           = { link = 'MiniStatuslineDevinfo'                      },
+  MiniStatuslineFilename           = { fg = c.neutral[300], bg = c.neutral[900]            },
+  MiniStatuslineInactive           = { link = 'MiniStatuslineFilename'                     },
 }
 
 if vim.g.colors_name then
@@ -378,3 +390,12 @@ vim.g.colors_name = 'neutr'
 for group, hl in pairs(hl_groups) do
   vim.api.nvim_set_hl(0, group, hl)
 end
+
+-- mini.git
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'MiniGitUpdated',
+  callback = function(data)
+    local summary = vim.b[data.buf].minigit_summary
+    vim.b[data.buf].minigit_summary_string = summary.head_name or ''
+  end,
+})
