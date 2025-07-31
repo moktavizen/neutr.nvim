@@ -3,28 +3,28 @@ local c = require('neutr.palette.dark')
 -- stylua: ignore
 return {
   normal   = {
-    a      = { fg = c.neutral[900], bg = c.blue[300],    gui = 'bold' },
-    b      = { fg = c.neutral[50],  bg = c.neutral[700]               },
-    c      = { fg = c.neutral[300], bg = c.neutral[900]               },
+    a      = { fg = c.neutral.s900, bg = c.blue.s300,    gui = 'bold' },
+    b      = { fg = c.neutral.s50,  bg = c.neutral.s700               },
+    c      = { fg = c.neutral.s300, bg = c.neutral.s900               },
   },
   insert   = {
-    a      = { fg = c.neutral[900], bg = c.green[300],   gui = 'bold' },
-    b      = { fg = c.neutral[50],  bg = c.neutral[700]               },
-    c      = { fg = c.neutral[300], bg = c.neutral[900]               },
+    a      = { fg = c.neutral.s900, bg = c.green.s300,   gui = 'bold' },
+    b      = { fg = c.neutral.s50,  bg = c.neutral.s700               },
+    c      = { fg = c.neutral.s300, bg = c.neutral.s900               },
   },
   visual   = {
-    a      = { fg = c.neutral[900], bg = c.magenta[300], gui = 'bold' },
-    b      = { fg = c.neutral[50],  bg = c.neutral[700]               },
-    c      = { fg = c.neutral[300], bg = c.neutral[900]               },
+    a      = { fg = c.neutral.s900, bg = c.magenta.s300, gui = 'bold' },
+    b      = { fg = c.neutral.s50,  bg = c.neutral.s700               },
+    c      = { fg = c.neutral.s300, bg = c.neutral.s900               },
   },
   replace  = {
-    a      = { fg = c.neutral[900], bg = c.red[300],     gui = 'bold' },
-    b      = { fg = c.neutral[50],  bg = c.neutral[700]               },
-    c      = { fg = c.neutral[300], bg = c.neutral[900]               },
+    a      = { fg = c.neutral.s900, bg = c.red.s300,     gui = 'bold' },
+    b      = { fg = c.neutral.s50,  bg = c.neutral.s700               },
+    c      = { fg = c.neutral.s300, bg = c.neutral.s900               },
   },
   inactive = {
-    a      = { fg = c.neutral[300], bg = c.neutral[900], gui = 'bold' },
-    b      = { fg = c.neutral[300], bg = c.neutral[900]               },
-    c      = { fg = c.neutral[300], bg = c.neutral[900]               },
+    a      = { fg = c.neutral.s300, bg = c.neutral.s900, gui = 'bold' },
+    b      = { fg = c.neutral.s300, bg = c.neutral.s900               },
+    c      = { fg = c.neutral.s300, bg = c.neutral.s900               },
   },
 }

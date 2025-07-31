@@ -16,51 +16,51 @@ local p   = {
   cyan    = '#97d8f2',
 }
 
-local dim = { l = 30, c = 2 }
-local semi_dim = { l = 50, c = 5 }
+local s800 = { l = 30, c = 2 }
+local s500 = { l = 50, c = 5 }
 local pale = { c = 0.33 }
 
 -- stylua: ignore
-local colors =    {
-  neutral    =    {
-    [50]     =    p.fg,
-    [100]    =    U.set_lch(p.fg, { l = 80 }),
-    [200]    =    p.fg_dim,
-    [300]    =    U.set_lch(p.fg, { l = 65 }),
-    [400]    =    p.fg_alt,
-    [500]    =    U.set_lch(p.fg, { l = 50 }),
-    [600]    =    U.set_lch(p.fg, { l = 40 }),
-    [700]    =    p.bg_alt,
-    [800]    =    U.set_lch(p.fg, { l = 30 }),
-    [900]    =    p.bg,
-    [950]    =    p.bg_dim
+local colors = {
+  neutral =  {
+    s50   =  p.fg,
+    s100  =  U.set_lch(p.fg, { l = 80 }),
+    s200  =  p.fg_dim,
+    s300  =  U.set_lch(p.fg, { l = 65 }),
+    s400  =  p.fg_alt,
+    s500  =  U.set_lch(p.fg, { l = 50 }),
+    s600  =  U.set_lch(p.fg, { l = 40 }),
+    s700  =  p.bg_alt,
+    s800  =  U.set_lch(p.fg, { l = 30 }),
+    s900  =  p.bg,
+    s950  =  p.bg_dim,
   },
-  red        =    {
-    [300]    =    p.red,
-    [500]    =    U.set_lch(p.red, { l = semi_dim.l, c = semi_dim.c }),
-    [950]    =    U.set_lch(p.red, { l = dim.l, c = dim.c }),
+  red     =  {
+    s300  =  p.red,
+    s500  =  U.set_lch(p.red, { l = s500.l, c = s500.c }),
+    s950  =  U.set_lch(p.red, { l = s800.l, c = s800.c }),
   },
-  green      =    {
-    [300]    =    p.green,
-    [500]    =    U.set_lch(p.green, { l = semi_dim.l, c = semi_dim.c }),
-    [950]    =    U.set_lch(p.green, { l = dim.l, c = dim.c }),
+  green   =  {
+    s300  =  p.green,
+    s500  =  U.set_lch(p.green, { l = s500.l, c = s500.c }),
+    s950  =  U.set_lch(p.green, { l = s800.l, c = s800.c }),
   },
-  yellow     =    {
-    [300]    =    p.yellow,
-    [950]    =    U.set_lch(p.yellow, { l = dim.l, c = dim.c }),
+  yellow  =  {
+    s300  =  p.yellow,
+    s950  =  U.set_lch(p.yellow, { l = s800.l, c = s800.c }),
   },
-  blue       =    {
-    [300]    =    p.blue,
-    [500]    =    U.set_lch(p.blue, { l = semi_dim.l, c = semi_dim.c }),
-    [950]    =    U.set_lch(p.blue, { l = dim.l, c = dim.c }),
+  blue    =  {
+    s300  =  p.blue,
+    s500  =  U.set_lch(p.blue, { l = s500.l, c = s500.c }),
+    s950  =  U.set_lch(p.blue, { l = s800.l, c = s800.c }),
   },
-  magenta    =    {
-    [300]    =    p.magenta,
+  magenta =  {
+    s300  =  p.magenta,
   },
-  cyan       =    {
-    [300]    =    p.cyan,
-    [500]    =    U.rel_lch(p.cyan, { c = pale.c }),
-    [950]    =    U.set_lch(p.cyan, { l = dim.l, c = dim.c }),
+  cyan    =  {
+    s300  =  p.cyan,
+    s500  =  U.rel_lch(p.cyan, { c = pale.c }),
+    s950  =  U.set_lch(p.cyan, { l = s800.l, c = s800.c }),
   },
 }
 
