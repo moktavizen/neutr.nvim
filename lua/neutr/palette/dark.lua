@@ -16,44 +16,47 @@ local p   = {
   cyan    = '#97d8f2',
 }
 
+local dim = { l = 30, c = 2 }
+local pale = { c = 0.33 }
+
 -- stylua: ignore
 local colors =    {
   neutral    =    {
     [50]     =    p.fg,
-    [100]    =    U.set_lightness(p.fg, 80),
+    [100]    =    U.set_lch(p.fg, { l = 80 }),
     [200]    =    p.fg_dim,
-    [300]    =    U.set_lightness(p.fg, 65),
+    [300]    =    U.set_lch(p.fg, { l = 65 }),
     [400]    =    p.fg_alt,
-    [500]    =    U.set_lightness(p.fg, 50),
-    [600]    =    U.set_lightness(p.fg, 40),
+    [500]    =    U.set_lch(p.fg, { l = 50 }),
+    [600]    =    U.set_lch(p.fg, { l = 40 }),
     [700]    =    p.bg_alt,
-    [800]    =    U.set_lightness(p.fg, 30),
+    [800]    =    U.set_lch(p.fg, { l = 30 }),
     [900]    =    p.bg,
     [950]    =    p.bg_dim
   },
   red        =    {
     [300]    =    p.red,
-    [950]    =    U.dim(p.red),
+    [950]    =    U.set_lch(p.red, { l = dim.l, c = dim.c }),
   },
   green      =    {
     [300]    =    p.green,
-    [950]    =    U.dim(p.green),
+    [950]    =    U.set_lch(p.green, { l = dim.l, c = dim.c }),
   },
   yellow     =    {
     [300]    =    p.yellow,
-    [950]    =    U.dim(p.yellow),
+    [950]    =    U.set_lch(p.yellow, { l = dim.l, c = dim.c }),
   },
   blue       =    {
     [300]    =    p.blue,
-    [950]    =    U.dim(p.blue),
+    [950]    =    U.set_lch(p.blue, { l = dim.l, c = dim.c }),
   },
   magenta    =    {
     [300]    =    p.magenta,
   },
   cyan       =    {
     [300]    =    p.cyan,
-    [500]    =    U.pale(p.cyan),
-    [950]    =    U.dim(p.cyan),
+    [500]    =    U.rel_lch(p.cyan, { c = pale.c }),
+    [950]    =    U.set_lch(p.cyan, { l = dim.l, c = dim.c }),
   },
 }
 

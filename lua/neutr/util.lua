@@ -78,28 +78,34 @@ function M.mix_hue(hex, chroma, hue, percentage)
   return new_hex
 end
 
-function M.set_lightness(hex, lightness)
+function M.set_lch(hex, t)
   local new_hex = color_mod_oklch(hex, function(oklch)
-    oklch.l = lightness
+    if t.l ~= nil then
+      oklch.l = t.l
+    end
+    if t.c ~= nil then
+      oklch.c = t.c
+    end
+    if t.h ~= nil then
+      oklch.h = t.h
+    end
     return oklch
   end)
 
   return new_hex
 end
 
-function M.dim(hex)
+function M.rel_lch(hex, t)
   local new_hex = color_mod_oklch(hex, function(oklch)
-    oklch.l = 30
-    oklch.c = 2
-    return oklch
-  end)
-
-  return new_hex
-end
-
-function M.pale(hex)
-  local new_hex = color_mod_oklch(hex, function(oklch)
-    oklch.c = oklch.c * 0.33
+    if t.l ~= nil then
+      oklch.l = oklch.l * t.l
+    end
+    if t.c ~= nil then
+      oklch.c = oklch.c * t.c
+    end
+    if t.h ~= nil then
+      oklch.h = oklch.h * t.h
+    end
     return oklch
   end)
 
