@@ -41,7 +41,7 @@ local hl_groups = {
   SignColumn                       = { fg = c.neutral.s600                                  },
   IncSearch                        = { fg = c.neutral.s900, bg = c.yellow.s300              },
   Search                           = { fg = c.neutral.s900, bg = c.green.s300               },
-  CurSearch                        = { fg = c.neutral.s900, bg = c.yellow.s300              },
+  CurSearch                        = { fg = c.neutral.s900, bg = c.blue.s300                },
   MatchParen                       = { fg = c.yellow.s300,  bg = c.neutral.s700             },
   Substitute                       = { fg = c.neutral.s900, bg = c.blue.s300,   bold = true },
   LineNr                           = { fg = c.neutral.s500                                  },
