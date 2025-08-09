@@ -1,66 +1,46 @@
-local U = require('neutr.util')
-
--- stylua: ignore
-local p   = {
-  bg_dim  = '#121212',
-  bg      = '#1e1e1e',
-  bg_alt  = '#373737',
-  fg_alt  = '#717171',
-  fg_dim  = '#999999',
-  fg      = '#ebebeb',
-  red     = '#f2979c',
-  green   = '#cdf297',
-  yellow  = '#f2d297',
-  blue    = '#97b4f2',
-  magenta = '#cd97f2',
-  cyan    = '#97d8f2',
-}
-
-local s800 = { l = 30, c = 2 }
-local s500 = { l = 50, c = 5 }
-local pale = { c = 0.33 }
-
 -- stylua: ignore
 local colors = {
-  neutral =  {
-    s50   =  p.fg,
-    s100  =  U.set_lch(p.fg, { l = 80 }),
-    s200  =  p.fg_dim,
-    s300  =  U.set_lch(p.fg, { l = 65 }),
-    s400  =  p.fg_alt,
-    s500  =  U.set_lch(p.fg, { l = 50 }),
-    s600  =  U.set_lch(p.fg, { l = 40 }),
-    s700  =  p.bg_alt,
-    s800  =  U.set_lch(p.fg, { l = 30 }),
-    s900  =  p.bg,
-    s950  =  p.bg_dim,
+  neutral   = {
+    s50     =    '#ebebeb',
+    s100    =    '#c1c1c1',
+    s200    =    '#999999',
+    s300    =    '#868686',
+    s400    =    '#717171',
+    s500    =    '#5c5c5c',
+    s600    =    '#484848',
+    s700    =    '#373737',
+    s800    =    '#2c2c2c',
+    s900    =    '#1e1e1e',
+    s950    =    '#131313',
   },
-  red     =  {
-    s300  =  p.red,
-    s500  =  U.set_lch(p.red, { l = s500.l, c = s500.c }),
-    s800  =  U.set_lch(p.red, { l = s800.l, c = s800.c }),
+  red       =    {
+    s300    =    '#f2979c',
+    s500    =    '#724d4f',
+    s800    =    '#3a2b2c',
   },
-  green   =  {
-    s300  =  p.green,
-    s500  =  U.set_lch(p.green, { l = s500.l, c = s500.c }),
-    s800  =  U.set_lch(p.green, { l = s800.l, c = s800.c }),
+  green     =    {
+    s300    =    '#cdf297',
+    s500    =    '#687754',
+    s800    =    '#3b4133',
   },
-  yellow  =  {
-    s300  =  p.yellow,
-    s800  =  U.set_lch(p.yellow, { l = s800.l, c = s800.c }),
+  yellow    =    {
+    s300    =    '#f2d297',
+    s800    =    '#3f3a31',
   },
-  blue    =  {
-    s300  =  p.blue,
-    s500  =  U.set_lch(p.blue, { l = s500.l, c = s500.c }),
-    s800  =  U.set_lch(p.blue, { l = s800.l, c = s800.c }),
+  blue      =    {
+    s300    =    '#97b4f2',
+    s500    =    '#4d5971',
+    s800    =    '#2b303a',
   },
-  magenta =  {
-    s300  =  p.magenta,
+  magenta   =    {
+    s300    =    '#cd97f2',
   },
-  cyan    =  {
-    s300  =  p.cyan,
-    s500  =  U.rel_lch(p.cyan, { c = pale.c }),
-    s800  =  U.set_lch(p.cyan, { l = s800.l, c = s800.c }),
+  cyan      =    {
+    s300    =    '#97d8f2',
+    s800    =    '#30393e',
+  },
+  pale_cyan =    {
+    s300    =    '#b4c8d1',
   },
 }
 
