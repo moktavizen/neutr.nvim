@@ -368,15 +368,15 @@ local hl_groups = {
   NoiceMini                        = { bg = c.neutral.s950                                  },
 
   -- mini.statusline
-  MiniStatuslineModeNormal         = { fg = c.blue.s300,   bg=c.neutral.s900, bold=true  },
-  MiniStatuslineModeInsert         = { fg = c.green.s300,  bg=c.neutral.s900, bold=true  },
-  MiniStatuslineModeVisual         = { fg = c.magenta.s300,bg=c.neutral.s900, bold=true  },
-  MiniStatuslineModeCommand        = { fg = c.cyan.s300,   bg=c.neutral.s900, bold=true  },
-  MiniStatuslineModeDelete         = { fg = c.red.s300,    bg=c.neutral.s900, bold=true  },
-  MiniStatuslineModeOther          = { fg = c.yellow.s300, bg=c.neutral.s900, bold=true  },
-  MiniStatuslineDevinfo            = { fg = c.neutral.s50, bg=c.neutral.s900, bold=true  },
+  MiniStatuslineModeNormal         = { fg = c.blue.s300,    bg=c.neutral.s900, bold=true    },
+  MiniStatuslineModeInsert         = { fg = c.green.s300,   bg=c.neutral.s900, bold=true    },
+  MiniStatuslineModeVisual         = { fg = c.magenta.s300, bg=c.neutral.s900, bold=true    },
+  MiniStatuslineModeCommand        = { fg = c.cyan.s300,    bg=c.neutral.s900, bold=true    },
+  MiniStatuslineModeDelete         = { fg = c.red.s300,     bg=c.neutral.s900, bold=true    },
+  MiniStatuslineModeOther          = { fg = c.yellow.s300,  bg=c.neutral.s900, bold=true    },
+  MiniStatuslineDevinfo            = { fg = c.neutral.s50,  bg=c.neutral.s900, bold=true    },
   MiniStatuslineFileinfo           = { link = 'MiniStatuslineDevinfo'                       },
-  MiniStatuslineFilename           = { fg = c.neutral.s200,bg=c.neutral.s900, bold=true  },
+  MiniStatuslineFilename           = { fg = c.neutral.s200,bg=c.neutral.s900, bold=true     },
   MiniStatuslineInactive           = { link = 'StatusLineNC'                                },
 
   -- mini.diff
