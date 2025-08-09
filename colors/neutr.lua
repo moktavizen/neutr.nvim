@@ -1,18 +1,4 @@
-local config = require('neutr.config')
-local U = require('neutr.util')
 local c = require('neutr.palette.dark')
-
-local hue = config.opts.hue
-local chroma = config.opts.bg_chroma * 100
-local percentage = config.opts.fg_hue_mix
-
-if chroma ~= 0 or percentage ~= 0 then
-  for color_name, shades in pairs(c) do
-    for shade, hex in pairs(shades) do
-      c[color_name][shade] = U.mix_hue(hex, chroma, hue, percentage)
-    end
-  end
-end
 
 -- stylua: ignore
 local hl_groups = {
@@ -118,7 +104,7 @@ local hl_groups = {
   PreCondit                        = { fg = c.blue.s300                                     },
 
   Type                             = { fg = c.magenta.s300                                  },
-  StorageClass                     = { fg = c.cyan.s500                                     },
+  StorageClass                     = { fg = c.pale_cyan.s300                                },
   Structure                        = { fg = c.cyan.s300                                     },
   Typedef                          = { fg = c.red.s300                                      },
 
@@ -219,7 +205,7 @@ local hl_groups = {
 
   ['@attribute']                   = { fg = c.magenta.s300                                  },
   ['@attribute.builtin']           = { fg = c.yellow.s300                                   },
-  ['@property']                    = { fg = c.cyan.s500                                     },
+  ['@property']                    = { fg = c.pale_cyan.s300                                },
 
   ['@function']                    = { fg = c.blue.s300                                     },
   ['@function.builtin']            = { fg = c.blue.s300                                     },
@@ -417,12 +403,3 @@ vim.g.colors_name = 'neutr'
 for group, hl in pairs(hl_groups) do
   vim.api.nvim_set_hl(0, group, hl)
 end
-
--- mini.git
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'MiniGitUpdated',
-  callback = function(data)
-    local summary = vim.b[data.buf].minigit_summary
-    vim.b[data.buf].minigit_summary_string = summary.head_name or ''
-  end,
-})
