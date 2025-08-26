@@ -316,6 +316,8 @@ local hl_groups = {
   SnacksPickerBufFlags             = { fg = c.neutral.s300                                  },
   SnacksPickerKeymapRhs            = { fg = c.neutral.s300                                  },
   SnacksPickerMatch                = { fg = c.yellow.s300                                   },
+  SnacksPickerListCursorLine       = { bg = c.neutral.s800                                  },
+  SnacksPickerPreviewCursorLine    = { bg = c.neutral.s800                                  },
 
   -- nvim-tree
   NvimTreeRootFolder               = { fg = c.neutral.s100, bold = true                     },
