@@ -55,7 +55,7 @@ local hl_groups = {
   TabLineSel                       = { link = 'Normal'                                      },
   Visual                           = { bg = c.neutral.s700                                  },
   VisualNOS                        = { bg = c.neutral.s600                                  },
-  ModeMsg                          = { fg = c.neutral.s100, bold = true                     },
+  ModeMsg                          = { fg = c.neutral.s200, bold = true                     },
   MsgArea                          = { link = 'StatusLine'                                  },
   MsgSeparator                     = {                                                      },
   MoreMsg                          = { fg = c.blue.s300                                     },
