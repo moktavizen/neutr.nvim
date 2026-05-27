@@ -56,7 +56,7 @@ local hl_groups = {
   Visual                           = { bg = c.neutral.s700                                  },
   VisualNOS                        = { bg = c.neutral.s600                                  },
   ModeMsg                          = { fg = c.neutral.s100, bold = true                     },
-  MsgArea                          = {                                                      },
+  MsgArea                          = { link = 'StatusLine'                                  },
   MsgSeparator                     = {                                                      },
   MoreMsg                          = { fg = c.blue.s300                                     },
   Whitespace                       = { fg = c.neutral.s700                                  },
