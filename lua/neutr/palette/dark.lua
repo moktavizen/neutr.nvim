@@ -39,9 +39,6 @@ local colors = {
     s300    =    '#97d8f2',
     s800    =    '#30393e',
   },
-  pale_cyan =    {
-    s300    =    '#b4c8d1',
-  },
 }
 
 return colors
