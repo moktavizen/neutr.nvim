@@ -105,7 +105,7 @@ local hl_groups = {
   PreCondit                        = { fg = c.blue.s300                                     },
 
   Type                             = { fg = c.magenta.s300                                  },
-  StorageClass                     = { fg = c.pale_cyan.s300                                },
+  StorageClass                     = { fg = c.magenta.s300                                  },
   Structure                        = { fg = c.cyan.s300                                     },
   Typedef                          = { fg = c.red.s300                                      },
 
@@ -206,7 +206,7 @@ local hl_groups = {
 
   ['@attribute']                   = { fg = c.magenta.s300                                  },
   ['@attribute.builtin']           = { fg = c.yellow.s300                                   },
-  ['@property']                    = { fg = c.pale_cyan.s300                                },
+  ['@property']                    = { fg = c.neutral.s50                                   },
 
   ['@function']                    = { fg = c.blue.s300                                     },
   ['@function.builtin']            = { fg = c.blue.s300                                     },
