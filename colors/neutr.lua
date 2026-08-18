@@ -70,6 +70,7 @@ local hl_groups = {
   SpellRare                        = { sp = c.green.s300,   undercurl = true                },
   ErrorMsg                         = { fg = c.red.s300,     bold = true, italic = true      },
   WarningMsg                       = { fg = c.yellow.s300                                   },
+  OkMsg                            = { fg = c.green.s300                                    },
   DiffAdd                          = { bg = c.green.s800                                    },
   DiffChange                       = { bg = c.blue.s800                                     },
   DiffDelete                       = { bg = c.red.s800                                      },
