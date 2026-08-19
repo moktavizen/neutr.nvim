@@ -179,7 +179,7 @@ local hl_groups = {
   ['@module.python']               = { fg = c.neutral.s50                                   },
   -- ['@module.builtin'] = {},
   ['@label']                       = { fg = c.yellow.s300                                   },
-  ['@label.markdown']              = { fg = c.green.s300                                    },
+  ['@label.markdown']              = { link = 'Comment'                                     },
 
   ['@string']                      = { fg = c.green.s300                                    },
   ['@string.documentation']        = { link = 'Comment'                                     },
@@ -281,7 +281,7 @@ local hl_groups = {
 
   ['@markup.raw']                  = { fg = c.neutral.s50                                   },
   ['@markup.raw.markdown_inline']  = { fg = c.green.s300                                    },
-  ['@markup.raw.block']            = { fg = c.neutral.s100                                  },
+  ['@markup.raw.block']            = { fg = c.green.s300                                    },
 
   ['@markup.list']                 = { fg = c.cyan.s300                                     },
   ['@markup.list.checked']         = { fg = c.green.s300                                    },
